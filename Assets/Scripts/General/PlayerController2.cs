@@ -8,7 +8,7 @@ public class PlayerController2 : MonoBehaviour
     public float _MovementSpeed;
     public float _MovementTime;
 
-    private Vector2 movementInput;
+    
 
     private void Awake()
     {
@@ -24,12 +24,9 @@ public class PlayerController2 : MonoBehaviour
     {
         HandleMovement();
 
-        // transform.Translate(new Vector3(movementInput.x, 0, 0) * _MovementSpeed * Time.deltaTime);
+       
 
     }
-
-
-    //public void OnMove(InputAction.CallbackContext ctx) => movementInput = ctx.ReadValue<Vector2>();
 
 
     private void HandleMovement()
@@ -39,5 +36,7 @@ public class PlayerController2 : MonoBehaviour
 
 
         transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * _MovementTime);
+
+
     }
 }
