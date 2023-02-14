@@ -18,7 +18,7 @@ public class DragMe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
         //Spawn primitive sphere
         _sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         _sphere.GetComponent<SphereCollider>().enabled = false;
-        _sphere.transform.localScale = Vector3.one * 10;
+        _sphere.transform.localScale = Vector3.one * 500;
 
 
         var canvas = FindInParents<Canvas>(gameObject);
