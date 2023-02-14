@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class GlowOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class OnHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private float _basePositionY;
     private RectTransform _picture;
