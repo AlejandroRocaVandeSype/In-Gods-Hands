@@ -11,13 +11,14 @@ public class PlayerController1 : MonoBehaviour
     public float _MovementSpeed;
     public float _MovementTime;
     private float _MaxRightMovement;
-    private float _MaxVerticalMovement;
+    private float _MaxVerticalDownMovement;
+    private float _MaxVerticalUpMovement;
 
     // CAMERA ZOOM
     public Vector3 _ZoomAmount;
     public Vector3 _NewZoom;
     private float _MaxZoomOut;
-    private const float _MaxZoomIn = 10f;
+    private const float _MaxZoomIn = 350f;
 
     const string HORIZONTAL_AXIS = "Horizontal1";
     const string VERTICAL_AXIS = "Vertical1";
@@ -33,8 +34,9 @@ public class PlayerController1 : MonoBehaviour
     private void Start()
     {
         _NewPosition = transform.position;
-        _MaxRightMovement = _NewPosition.x + 15000f;
-        _MaxVerticalMovement = _NewPosition.z + 15000f;
+        _MaxRightMovement = _NewPosition.x - 300f;
+        _MaxVerticalDownMovement = _NewPosition.z - 200f;
+        _MaxVerticalUpMovement = _NewPosition.z + 800f;
 
         if (_CameraTransform != null)
         {
@@ -77,7 +79,7 @@ public class PlayerController1 : MonoBehaviour
     private void HandleZoom()
     {
 
-        if (Input.GetAxis(ZOOM_IN_AXIS) > 0 && (_NewZoom.y > _MaxZoomIn))
+        if (Input.GetAxis(ZOOM_IN_AXIS) > 0 && (-_NewZoom.y < _MaxZoomIn))
         {
             _NewZoom += _ZoomAmount;
         }
@@ -93,26 +95,26 @@ public class PlayerController1 : MonoBehaviour
 
     private void MoveHorizontal(float x_offset)
     {
-        if (_NewPosition.x >= -_MaxRightMovement && _NewPosition.x <= _MaxRightMovement)
+       if (_NewPosition.x >= _MaxRightMovement && _NewPosition.x <= -_MaxRightMovement)
         {
             _NewPosition.x += x_offset;
             transform.position = Vector3.Lerp(transform.position, _NewPosition, Time.deltaTime * _MovementTime);
         }
         else
         {
-            if (_NewPosition.x <= -_MaxRightMovement)
+            if (_NewPosition.x <= _MaxRightMovement)
             {
-                _NewPosition.x = -_MaxRightMovement;
+                _NewPosition.x = _MaxRightMovement;
             }
             else
             {
-                if (_NewPosition.x >= _MaxRightMovement)
+                if (_NewPosition.x >= -_MaxRightMovement)
                 {
-                    _NewPosition.x = _MaxRightMovement;
+                    _NewPosition.x = -_MaxRightMovement;
                 }
             }
 
-
+        
 
             //_NewPosition.x = _MaxRightMovement;
 
@@ -122,26 +124,26 @@ public class PlayerController1 : MonoBehaviour
 
     private void MoveVertical(float z_offset)
     {
-        if (_NewPosition.z >= -_MaxVerticalMovement && _NewPosition.z <= _MaxVerticalMovement)
+       if (_NewPosition.z <= _MaxVerticalUpMovement && _NewPosition.z >= _MaxVerticalDownMovement)
         {
             _NewPosition.z += z_offset;
             transform.position = Vector3.Lerp(transform.position, _NewPosition, Time.deltaTime * _MovementTime);
         }
         else
         {
-            if (_NewPosition.z <= -_MaxVerticalMovement)
+            if (_NewPosition.z >= _MaxVerticalUpMovement)
             {
-                _NewPosition.z = -_MaxVerticalMovement;
+                _NewPosition.z = _MaxVerticalUpMovement;
             }
             else
             {
-                if (_NewPosition.z >= _MaxVerticalMovement)
+                if (_NewPosition.z <= _MaxVerticalDownMovement)
                 {
-                    _NewPosition.z = _MaxVerticalMovement;
+                    _NewPosition.z = _MaxVerticalDownMovement;
                 }
             }
 
 
-        }
+        } 
     }
 }

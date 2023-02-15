@@ -109,13 +109,13 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - _choppyness: 0.04
-    - _flowSpeed: 0.05
+    - _flowSpeed: 0.2
     m_Colors:
     - _Color: {r: 0.27735847, g: 0.62834984, b: 1, a: 1}
     - _DarkFoamColor: {r: 0.15064079, g: 0.26704276, b: 0.3679245, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightFoamColor: {r: 0.07058824, g: 0.050980397, b: 0.06666667, a: 0}
-    - _water_color: {r: 0.32156864, g: 0.13333334, b: 0.15294118, a: 0}
+    - _LightFoamColor: {r: 0.7980598, g: 0.9457189, b: 0.990566, a: 0}
+    - _water_color: {r: 0.32776785, g: 0.47153497, b: 0.5849056, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &581649715222356902
 MonoBehaviour:

@@ -5,7 +5,7 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects: {}
   materials:
-    materialImportMode: 2
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -53,8 +53,8 @@ ModelImporter:
     weldVertices: 1
     bakeAxisConversion: 0
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
+    skinWeightsMode: 1
+    maxBonesPerVertex: 1
     minBoneWeight: 0.001
     optimizeBones: 1
     meshOptimizationFlags: -1
@@ -80,7 +80,127 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: SM_Human(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube35
+      parentName: SM_Human(Clone)
+      position: {x: -0.63364494, y: 2.9054408, z: -0.24657188}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 140.376, y: 140.376, z: 140.376}
+    - name: transform16
+      parentName: pCube35
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube36
+      parentName: SM_Human(Clone)
+      position: {x: -0.65948766, y: 1.8267056, z: -0.2735884}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 47.66445, y: 166.02003, z: 35.892914}
+    - name: transform15
+      parentName: pCube36
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube37
+      parentName: SM_Human(Clone)
+      position: {x: -0.86167705, y: 0.57127964, z: -0.27988365}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 26.000227, y: 137.64505, z: 26.000227}
+    - name: transform20
+      parentName: pCube37
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube38
+      parentName: SM_Human(Clone)
+      position: {x: -0.44393328, y: 0.57127964, z: -0.27988365}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 26.000227, y: 137.64505, z: 26.000227}
+    - name: transform19
+      parentName: pCube38
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube39
+      parentName: SM_Human(Clone)
+      position: {x: -1.2276913, y: 1.5360687, z: -0.27988797}
+      rotation: {x: -0.009333924, y: -0.02228453, z: -0.38192004, w: 0.9238795}
+      scale: {x: 26.000227, y: 77.43045, z: 26.000227}
+    - name: transform18
+      parentName: pCube39
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube40
+      parentName: SM_Human(Clone)
+      position: {x: -0.13646343, y: 1.5598572, z: -0.23805676}
+      rotation: {x: -0.01599506, y: 0.01998571, z: 0.3810099, w: 0.92421657}
+      scale: {x: 26.000227, y: 88.97162, z: 26.000227}
+    - name: transform21
+      parentName: pCube40
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube41
+      parentName: SM_Human(Clone)
+      position: {x: -0.5837153, y: 1.8333595, z: -0.26292124}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 140.73674, y: 82.44747, z: 116.929794}
+    - name: transform17
+      parentName: pCube41
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube44
+      parentName: SM_Human(Clone)
+      position: {x: -0.63364494, y: 3.5943475, z: -0.24657188}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 61.480938, y: 61.480938, z: 61.480938}
+    - name: transform11
+      parentName: pCube44
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube45
+      parentName: SM_Human(Clone)
+      position: {x: 0.013590759, y: 2.0146163, z: -0.2751285}
+      rotation: {x: -0.021725353, y: 0.015382702, z: 0.00023307402, w: 0.9996456}
+      scale: {x: 50.752792, y: 23.992493, z: 23.992493}
+    - name: transform14
+      parentName: pCube45
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube46
+      parentName: SM_Human(Clone)
+      position: {x: -1.2874566, y: 2.01488, z: -0.23508333}
+      rotation: {x: -0.021725353, y: 0.015382702, z: 0.00023307402, w: 0.9996456}
+      scale: {x: 50.752792, y: 23.992493, z: 23.992493}
+    - name: transform12
+      parentName: pCube46
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube47
+      parentName: SM_Human(Clone)
+      position: {x: -0.65304714, y: 1.4518342, z: -0.25029016}
+      rotation: {x: -0.004482275, y: 0.026239812, z: 0.7070925, w: 0.7066198}
+      scale: {x: 50.752792, y: 23.992493, z: 116.36044}
+    - name: transform13
+      parentName: pCube47
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube48
+      parentName: SM_Human(Clone)
+      position: {x: -0.6624723, y: 1.9782108, z: -0.2600274}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -91,11 +211,11 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
