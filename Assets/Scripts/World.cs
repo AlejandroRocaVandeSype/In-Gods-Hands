@@ -132,11 +132,11 @@ public class World : MonoBehaviour
     {
         get { return _MineralResources; }
     }
-    public Human[] Player1Humans
+    public List<Human> Player1Humans
     {
         get { return _Player1Humans;}
     }
-    public Human[] Player2Humans
+    public List<Human> Player2Humans
     {
         get { return _Player2Humans;}
     }
