@@ -4,18 +4,49 @@ using UnityEngine;
 
 public class Human : BasicCharacter
 {
+
+    private GameManager.PlayerNumber _PlayerOwner;
     private GameObject _Target = null;
-    [SerializeField] private Construction[] _Constructions;
-    [SerializeField] private Resource[] _Resources;
-    private NavMeshMovementBehavior _NavMeshMovementBehavior;
+    private GameManager _GameManager = null;
+    private World _WorldManager = null;
+
+    // Resources
+    private Resource[] _WoodResources = null;
+    private Resource _CurrentResource = null;   // Resource is gathering
+
+    // Constructions
+    private Construction[] _Churches = null;
+
     // [SerializeField] private float m_AttackRange = 2.0f;
+
+    private GameManager.HumanBehaviors _Behavior;
+    private bool _IsAtTarget = false;
 
 
     protected override void Awake()
     {
         base.Awake();
 
-        _NavMeshMovementBehavior= GetComponent<NavMeshMovementBehavior>();
+        _GameManager = GameManager.GetInstance;
+        _WorldManager = _GameManager.WorldManager;
+
+        if(_WorldManager != null)
+        {
+            _WoodResources = _WorldManager.WoodResources;
+
+            if(_PlayerOwner == GameManager.PlayerNumber.Player1)
+            {
+                _Churches = _WorldManager.Player1Churchs;
+            }
+            else
+            {
+                _Churches = _WorldManager.Player2Churchs;
+            }
+           
+        }
+
+        _Behavior = GameManager.HumanBehaviors.MovingToResource;
+
     }
     private void Start()
     {
@@ -25,25 +56,150 @@ public class Human : BasicCharacter
         // if (player != null)
         // m_PlayerTarget = player.gameObject;
 
-        _Target = _Constructions[0].gameObject;
-        _MovementBehavior.Target = _Target;
+        //_Target = _Constructions[0].gameObject;
+       
     }
 
     // Update is called once per frame
     private void Update()
     {
-       
+        switch(_Behavior)
+        {
+            case GameManager.HumanBehaviors.GatheringResource:
+                GatheringResource();
+                break;
+
+            case GameManager.HumanBehaviors.MovingToResource:
+                MovingToResource();
+                break;
+
+            case GameManager.HumanBehaviors.MovingToChurch:
+                MovingToChurch();
+                break;
+        }
+
+    }
+
+    private void GatheringResource()
+    {
+        _Behavior = GameManager.HumanBehaviors.MovingToChurch;
+    }
+
+    private void MovingToResource()
+    {
+        GetClosestResource(GameManager.ResourceType.Wood);
         HandleMovement();
         HandleRotation();
-        HandleAttacking();
+
+        float distanceToTarget = Vector3.Distance(_Target.transform.position, this.transform.position);
+
+        if (distanceToTarget < 10f)
+        {
+            _IsAtTarget = true;
+            _Target = null;
+            _Behavior = GameManager.HumanBehaviors.GatheringResource;
+        }
+    }
+
+    private void MovingToChurch()
+    {
+        if(_Churches.Length > 1 )
+        {
+
+        }
+        else
+        {
+            // Only one church go to this one
+            _Target = _Churches[0].gameObject;
+        }
+
+        HandleMovement();
+        HandleRotation();
+
+        float distanceToTarget = Vector3.Distance(_Target.transform.position, this.transform.position);
+
+        if (distanceToTarget < 10f)
+        {
+            _IsAtTarget = true;
+            _Target = null;
+            _Behavior = GameManager.HumanBehaviors.MovingToResource;
+        }
+    }
+
+    private void GetClosestResource(GameManager.ResourceType type)
+    {
+        float closestResource = -1;
+        int resourceIdx = 0;
+        switch(type)
+        {
+            case GameManager.ResourceType.Wood:
+
+                // Calculate where the closest resouce is
+                for (int index = 0; index < _WoodResources.Length; index++)
+                {
+                    if(_PlayerOwner == GameManager.PlayerNumber.Player1 && !_WoodResources[index]._IsPlayer1Human)
+                    {
+                        float currentDistance = Vector3.Distance(this.transform.position, _WoodResources[index].transform.position);
+
+                        if (closestResource == -1)
+                        {
+                            closestResource = currentDistance;
+                            resourceIdx = index;
+
+                        }
+                        else
+                        {
+                            if (currentDistance < closestResource)
+                            {
+                                closestResource = currentDistance;
+                                resourceIdx = index;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if(_PlayerOwner == GameManager.PlayerNumber.Player2 && !_WoodResources[index]._IsPlayer2Human)
+                        {
+                            float currentDistance = Vector3.Distance(this.transform.position, _WoodResources[index].transform.position);
+
+                            if (closestResource == -1)
+                            {
+                                closestResource = currentDistance;
+                                resourceIdx = index;
+
+                            }
+                            else
+                            {
+                                if (currentDistance < closestResource)
+                                {
+                                    closestResource = currentDistance;
+                                    resourceIdx = index;
+                                }
+                            }
+                        }
+                    }
+                   
+                    
+
+                }
+
+                _CurrentResource = _WoodResources[resourceIdx];
+                _Target = _WoodResources[resourceIdx].gameObject;
+
+                break;
+
+
+                case GameManager.ResourceType.Mineral: 
+                break;
+        }
     }
 
     void HandleMovement()
     {
         if (_MovementBehavior == null)
             return;
+        _MovementBehavior.Target = _Target;
 
-       
     }
 
     void HandleRotation()
@@ -76,27 +232,23 @@ public class Human : BasicCharacter
     private void OnCollisionEnter(Collision collision)
     {
         
-        if(_NavMeshMovementBehavior != null && collision.gameObject.layer != 6)
-        {
-            
-            _NavMeshMovementBehavior.StopMovement();
-        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        if (_NavMeshMovementBehavior != null && other.gameObject.layer != 6)
-        {
-            Debug.Log(other);
-            _NavMeshMovementBehavior.Target = null;
-            _NavMeshMovementBehavior.StopMovement();
-        }
+      
     }
 
     const string KILL_METHODNAME = "Kill";
     void Kill()
     {
         Destroy(gameObject);
+    }
+
+    public GameManager.PlayerNumber PlayerOwner
+    {
+        get { return _PlayerOwner;  }
+        set { _PlayerOwner = value;  }
     }
 }
