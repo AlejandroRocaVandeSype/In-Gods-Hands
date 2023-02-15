@@ -6,29 +6,50 @@ using UnityEngine.UI;
 
 public class ControllerInputUI : MonoBehaviour
 {
-    private GraphicRaycaster _graphicRaycaster;
-    public Camera Cam;
+    private GraphicRaycaster _GraphicRaycaster;
+    public Camera _Cam;
+    [SerializeField]
+    private bool _Player1;
+    [SerializeField]
+    private bool _Player2;
+    private GameObject _Sphere;
+    //private bool _IsDragging;
 
-    private GameObject _sphere;
-    private bool _isDragging;
 
+    string HORIZONTAL_AXIS;
+    string VERTICAL_AXIS;
     private void Start()
     {
-        _graphicRaycaster = GetComponentInParent<GraphicRaycaster>();
+        _GraphicRaycaster = GetComponentInParent<GraphicRaycaster>();
+        if (_Player1)
+        {
+            HORIZONTAL_AXIS = "Horizontal1RightJoystick";
+            VERTICAL_AXIS = "Vertical1RightJoystick";
+        }
+        else if (_Player2)
+        {
+            HORIZONTAL_AXIS = "Horizontal2RightJoystick";
+            VERTICAL_AXIS = "Vertical2RightJoystick";
+        }
+        else
+        {
+            Debug.Log("No Player Selected");
+        }
 
 
     }
     private void Update()
     {
-
-        MovePointer();
+        Vector3 v = (new Vector3(Input.GetAxis(HORIZONTAL_AXIS), Input.GetAxis(VERTICAL_AXIS), 0.0f));
+        Debug.Log(v);
+        MovePointer(v);
 
 
         var pointer = new PointerEventData(EventSystem.current) { position = transform.position };
 
         //Cast ray towards Canvas elements through pointer's position and store result
         List<RaycastResult> raycastResults = new List<RaycastResult>();
-        _graphicRaycaster.Raycast(pointer, raycastResults);
+        _GraphicRaycaster.Raycast(pointer, raycastResults);
 
 
 
@@ -41,20 +62,21 @@ public class ControllerInputUI : MonoBehaviour
             ui = null;
         }
 
+        //if raycast hits ui element
         if (ui)
         {
+            //call the pointerEnter function
             ExecuteEvents.Execute(ui.gameObject, pointer, ExecuteEvents.pointerEnterHandler);
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Debug.Log($"Hit {ui.name}");
                 ExecuteEvents.Execute(ui.gameObject, pointer, ExecuteEvents.beginDragHandler);
-
             }
 
             if (Input.GetKey(KeyCode.Space))
             {
                 ExecuteEvents.Execute(ui.gameObject, pointer, ExecuteEvents.dragHandler);
-                _isDragging = true;
+                // _IsDragging = true;
             }
 
             if (Input.GetKeyUp(KeyCode.Space))
@@ -66,26 +88,22 @@ public class ControllerInputUI : MonoBehaviour
 
 
         RaycastHit hit;
-        Ray ray = Cam.ScreenPointToRay(pointer.position);
+        Ray ray = _Cam.ScreenPointToRay(pointer.position);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
-
-            //Debug.DrawLine(ray.origin, hit.point,Color.red);
-
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 //Spawn primitive sphere
-                _sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                _sphere.GetComponent<SphereCollider>().enabled = false;
-                _sphere.transform.localScale = Vector3.one * 100;
-                _sphere.transform.position = new Vector3(-500, -500, -500);
+                _Sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                _Sphere.GetComponent<SphereCollider>().enabled = false;
+                _Sphere.transform.localScale = Vector3.one * 100;
+                _Sphere.transform.position = new Vector3(-500, -500, -500);
             }
 
-            Debug.Log(_isDragging);
             if (Input.GetKey(KeyCode.Space))
             {
-                _sphere.transform.position = hit.point;
+                _Sphere.transform.position = hit.point;
 
             }
         }
@@ -93,25 +111,30 @@ public class ControllerInputUI : MonoBehaviour
 
     }
 
-    void MovePointer()
+    void MovePointer(Vector3 v3)
     {
+        transform.position += new Vector3(v3.x, v3.y, 0) * 2;
+
+
         //Change input later to use joystick axes
-        if (Input.GetKey(KeyCode.Z))
-        {
-            transform.position += Vector3.up;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.position -= Vector3.up;
-        }
-        if (Input.GetKey(KeyCode.Q))
-        {
-            transform.position -= Vector3.right;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position += Vector3.right;
-        }
+        //if (Input.GetKey(KeyCode.Z))
+        //{
+        //    transform.position += Vector3.up;
+        //}
+        //if (Input.GetKey(KeyCode.S))
+        //{
+        //    transform.position -= Vector3.up;
+        //}
+        //if (Input.GetKey(KeyCode.Q))
+        //{
+        //    transform.position -= Vector3.right;
+        //}
+        //if (Input.GetKey(KeyCode.D))
+        //{
+        //    transform.position += Vector3.right;
+        //}
     }
+
+
 
 }
