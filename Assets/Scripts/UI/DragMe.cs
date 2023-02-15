@@ -18,12 +18,16 @@ public class DragMe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
         //Spawn primitive sphere
         _sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         _sphere.GetComponent<SphereCollider>().enabled = false;
-        _sphere.transform.localScale = Vector3.one * 500;
+        _sphere.transform.localScale = Vector3.one * 10;
 
 
         var canvas = FindInParents<Canvas>(gameObject);
         if (canvas == null)
+        {
+            Debug.Log("Canvas is null");
             return;
+
+        }
 
         // We have clicked something that can be dragged.
         // What we want to do is create an icon for this.
