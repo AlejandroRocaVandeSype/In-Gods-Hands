@@ -210,6 +210,7 @@ public class ControllerInputUI : MonoBehaviour
             foreach (var card in _Cards)
             {
                 card.GetComponent<OnHoverEffect>()._IsSelected = false;
+                card.GetComponent<OnHoverEffect>().MoveDown();
             }
 
             _Cards[3].GetComponent<OnHoverEffect>()._IsSelected = true;
@@ -220,6 +221,8 @@ public class ControllerInputUI : MonoBehaviour
             foreach (var card in _Cards)
             {
                 card.GetComponent<OnHoverEffect>()._IsSelected = false;
+                card.GetComponent<OnHoverEffect>().MoveDown();
+
             }
 
             _Cards[2].GetComponent<OnHoverEffect>()._IsSelected = true;
@@ -231,6 +234,8 @@ public class ControllerInputUI : MonoBehaviour
             foreach (var card in _Cards)
             {
                 card.GetComponent<OnHoverEffect>()._IsSelected = false;
+                card.GetComponent<OnHoverEffect>().MoveDown();
+
             }
 
             _Cards[1].GetComponent<OnHoverEffect>()._IsSelected = true;
@@ -242,6 +247,8 @@ public class ControllerInputUI : MonoBehaviour
             foreach (var card in _Cards)
             {
                 card.GetComponent<OnHoverEffect>()._IsSelected = false;
+                card.GetComponent<OnHoverEffect>().MoveDown();
+
             }
 
             _Cards[0].GetComponent<OnHoverEffect>()._IsSelected = true;
