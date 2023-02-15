@@ -1147,6 +1147,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3508967759520906157, guid: 1190d88b8c54d1841b043e20171917ab, type: 3}
+      propertyPath: _AOEScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3508967759520906157, guid: 1190d88b8c54d1841b043e20171917ab, type: 3}
       propertyPath: _Cards.Array.size
       value: 4
       objectReference: {fileID: 0}

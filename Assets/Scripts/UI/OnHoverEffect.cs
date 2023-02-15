@@ -41,17 +41,17 @@ public class OnHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         _picture.anchoredPosition = new Vector2(_picture.anchoredPosition.x, _basePositionY);
     }
 
-    void Update()
-    {
-        if (_Selected)
-        {
-            _picture.anchoredPosition = new Vector2(_picture.anchoredPosition.x, _basePositionY + 20);
-        }
-        else
-        {
-            _picture.anchoredPosition = new Vector2(_picture.anchoredPosition.x, _basePositionY);
+    //void Update()
+    //{
+    //    if (_Selected)
+    //    {
+    //        _picture.anchoredPosition = new Vector2(_picture.anchoredPosition.x, _basePositionY + 20);
+    //    }
+    //    else
+    //    {
+    //        _picture.anchoredPosition = new Vector2(_picture.anchoredPosition.x, _basePositionY);
 
-        }
+    //    }
 
-    }
+    //}
 }

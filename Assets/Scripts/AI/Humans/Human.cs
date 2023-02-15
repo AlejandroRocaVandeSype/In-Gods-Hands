@@ -137,6 +137,7 @@ public class Human : BasicCharacter
                 // Calculate where the closest resouce is
                 for (int index = 0; index < _WoodResources.Length; index++)
                 {
+                    //check the player owner and if the wood resource already has someone working there
                     if(_PlayerOwner == GameManager.PlayerNumber.Player1 && !_WoodResources[index]._IsPlayer1Human)
                     {
                         float currentDistance = Vector3.Distance(this.transform.position, _WoodResources[index].transform.position);

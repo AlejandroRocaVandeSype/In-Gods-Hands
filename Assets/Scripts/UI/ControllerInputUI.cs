@@ -6,13 +6,18 @@ using UnityEngine.UI;
 
 public class ControllerInputUI : MonoBehaviour
 {
-    private GraphicRaycaster _GraphicRaycaster;
     public Camera _Cam;
     [SerializeField]
     private bool _Player1;
     [SerializeField]
     private bool _Player2;
 
+    private RaycastHit hit;
+    private PointerEventData _Pointer = null;
+    public Vector3 PointerPos;
+
+    private Vector3 _InstancedAOEScale;
+    private Vector3 HitPoint;
 
     public GameObject _AOE;
     private GameObject _Instantiated;
@@ -36,9 +41,8 @@ public class ControllerInputUI : MonoBehaviour
 
     private void Start()
     {
-        _GraphicRaycaster = GetComponentInParent<GraphicRaycaster>();
-        _Instantiated = Instantiate(_AOE,new Vector3(0,0,0),Quaternion.identity);
-        _Instantiated.transform.localScale = new Vector3(_Instantiated.transform.localScale.x * _AOEScale, _Instantiated.transform.localScale.y, _Instantiated.transform.localScale.z * _AOEScale);
+        _Instantiated = Instantiate(_AOE, new Vector3(0, 0, 0), Quaternion.identity);
+        _InstancedAOEScale = _Instantiated.transform.localScale = new Vector3(_Instantiated.transform.localScale.x * _AOEScale, _Instantiated.transform.localScale.y, _Instantiated.transform.localScale.z * _AOEScale);
         _Instantiated.active = false;
         if (_Player1)
         {
@@ -70,52 +74,41 @@ public class ControllerInputUI : MonoBehaviour
         // Debug.Log(dpad);
         MovePointer(v);
         SelectCard(dpad);
+
         if (_SelectedCard)
             _SelectedCard.GetComponent<OnHoverEffect>().MoveUp();
 
-        PointerEventData pointer = null;
+
         if (_Player1)
         {
             //Added offset to poiner
-            pointer = new PointerEventData(EventSystem.current) { position = new Vector3(transform.position.x + Screen.width/4, transform.position.y, 0) };
-
+            _Pointer = new PointerEventData(EventSystem.current) { position = new Vector3(transform.position.x + Screen.width / 4, transform.position.y, 0) };
+            PointerPos = _Pointer.position;
         }
         if (_Player2)
         {
-            pointer = new PointerEventData(EventSystem.current) { position = new Vector3(transform.position.x - Screen.width / 4, transform.position.y, 0) };
+            _Pointer = new PointerEventData(EventSystem.current) { position = new Vector3(transform.position.x - Screen.width / 4, transform.position.y, 0) };
+            PointerPos = _Pointer.position;
+
 
         }
-        Debug.Log(pointer.position);
-
-        //Cast ray towards Canvas elements through pointer's position and store result
-        List<RaycastResult> raycastResults = new List<RaycastResult>();
-        _GraphicRaycaster.Raycast(pointer, raycastResults);
 
 
-
-        //UI element hit by the graphics raycaster
-        //UIBehaviour ui;
-        //if (raycastResults.Count > 0)
-        //    ui = raycastResults[0].gameObject.GetComponent<UIBehaviour>();
-        //else
-        //{
-        //    ui = null;
-        //}
-
-        //if raycast hits ui element
         if (_SelectedCard)
         {
-           
+
             RaycastHit hit;
-            Ray ray = _Cam.ScreenPointToRay(pointer.position);
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            Ray ray = _Cam.ScreenPointToRay(_Pointer.position);
+            int layerMask =~ LayerMask.GetMask("Destructible");
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity,layerMask))
             {
+                HitPoint = hit.point;
                 _Instantiated.active = true;
                 if (_Player1)
                 {
-                   
-                     _Instantiated.transform.position = hit.point;
-                   
+
+                    _Instantiated.transform.position = hit.point;
+
                     if (Input.GetKeyDown(KeyCode.Joystick1Button0))
                     {
                         //Spawn primitive sphere
@@ -133,7 +126,8 @@ public class ControllerInputUI : MonoBehaviour
                 }
                 if (_Player2)
                 {
-                    
+                    HitPoint = hit.point;
+
                     _Instantiated.transform.position = hit.point;
 
                     if (Input.GetKeyDown(KeyCode.Joystick2Button0))
@@ -167,63 +161,45 @@ public class ControllerInputUI : MonoBehaviour
         //Constrain player 
         if (_Player1)
         {
-            if (transform.position.x < 0 + size.x/2)
+            if (transform.position.x < 0 + size.x / 2)
             {
-                transform.position = new Vector3(size.x/2, transform.position.y, 0);
+                transform.position = new Vector3(size.x / 2, transform.position.y, 0);
             }
-            if (transform.position.x > Screen.width / 2 -size.x/2)
+            if (transform.position.x > Screen.width / 2 - size.x / 2)
             {
-                transform.position = new Vector3(Screen.width / 2 - size.x/2, transform.position.y, 0);
+                transform.position = new Vector3(Screen.width / 2 - size.x / 2, transform.position.y, 0);
             }
-            if (transform.position.y < 0 + size.y/2)
+            if (transform.position.y < 0 + size.y / 2)
             {
-                transform.position = new Vector3(transform.position.x, size.y/2, 0);
+                transform.position = new Vector3(transform.position.x, size.y / 2, 0);
             }
-            if (transform.position.y > Screen.height - size.y/2)
+            if (transform.position.y > Screen.height - size.y / 2)
             {
-                transform.position = new Vector3(transform.position.x, Screen.height - size.y/2, 0);
+                transform.position = new Vector3(transform.position.x, Screen.height - size.y / 2, 0);
             }
 
         }
 
-        if(_Player2)
+        if (_Player2)
         {
-            if (transform.position.x < Screen.width / 2+ size.x/2)
+            if (transform.position.x < Screen.width / 2 + size.x / 2)
             {
                 transform.position = new Vector3(Screen.width / 2, transform.position.y, 0);
             }
-            if (transform.position.x > Screen.width -  size.x/2)
+            if (transform.position.x > Screen.width - size.x / 2)
             {
                 transform.position = new Vector3(Screen.width, transform.position.y, 0);
             }
-            if (transform.position.y < 0+ size.y/2)
+            if (transform.position.y < 0 + size.y / 2)
             {
                 transform.position = new Vector3(transform.position.x, 0, 0);
             }
-            if (transform.position.y > Screen.height- size.y/2)
+            if (transform.position.y > Screen.height - size.y / 2)
             {
                 transform.position = new Vector3(transform.position.x, Screen.height, 0);
             }
         }
 
-
-        //Change input later to use joystick axes
-        //if (Input.GetKey(KeyCode.Z))
-        //{
-        //    transform.position += Vector3.up;
-        //}
-        //if (Input.GetKey(KeyCode.S))
-        //{
-        //    transform.position -= Vector3.up;
-        //}
-        //if (Input.GetKey(KeyCode.Q))
-        //{
-        //    transform.position -= Vector3.right;
-        //}
-        //if (Input.GetKey(KeyCode.D))
-        //{
-        //    transform.position += Vector3.right;
-        //}
     }
 
     void SelectCard(Vector3 dpad)
@@ -275,5 +251,26 @@ public class ControllerInputUI : MonoBehaviour
     }
 
 
+    public bool Player1
+    {
+        get { return _Player1; }
+    }
+    public bool Player2
+    {
+        get { return _Player2; }
+    }
+    public Vector3 InstancedAOEScale
+    {
+        get { return _InstancedAOEScale; }
+    }
 
+    public GameObject InstancedAOE
+    {
+        get { return _Instantiated; }
+    }
+
+    public Vector3 _Hit
+    {
+        get { return HitPoint; }
+    }
 }
