@@ -223,11 +223,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &368425868 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 4191610849231421051, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-  m_PrefabInstance: {fileID: 1964356548}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &397717094 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5293014920614954735, guid: 205a8289805b2234ab45f94743c64664, type: 3}
@@ -519,11 +514,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
---- !u!20 &1431760433 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 4191610847486300070, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-  m_PrefabInstance: {fileID: 1964356548}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1639197528 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8756660696262835221, guid: 205a8289805b2234ab45f94743c64664, type: 3}
@@ -612,22 +602,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 152703917}
     m_Modifications:
-    - target: {fileID: 1165827049, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: _Cam
-      value: 
-      objectReference: {fileID: 1431760433}
-    - target: {fileID: 1165827049, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: _Player2
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1977041924, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: _Cam
-      value: 
-      objectReference: {fileID: 368425868}
-    - target: {fileID: 1977041924, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: _Player1
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5293014920614954735, guid: 205a8289805b2234ab45f94743c64664, type: 3}
       propertyPath: m_RootOrder
       value: 0
