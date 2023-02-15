@@ -15,6 +15,8 @@ public class DragMe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+
+        
         //Spawn primitive sphere
         _sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         _sphere.GetComponent<SphereCollider>().enabled = false;

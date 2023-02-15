@@ -14,6 +14,7 @@ public class OnHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
+        
         _picture.anchoredPosition = new Vector2(_picture.anchoredPosition.x, _basePositionY+20);
     }
 
