@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4190530563619120591}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 2.03895, y: 2.03895, z: 2.03895}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9014285747383701780}
@@ -61,7 +61,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdc1d4ef41817154a9b8581894b2e423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AttackRange: 2
+  _Target: {fileID: 0}
+  _Constructions: []
+  _Resources: []
 --- !u!195 &3214532706540407050
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -148,6 +150,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6726615986570039458, guid: ae0281948097bc74086aedff592b5138, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 716c044f163a6d243a249f573c39e46b, type: 2}
     - target: {fileID: 919132149155446097, guid: ae0281948097bc74086aedff592b5138, type: 3}
       propertyPath: m_Name
       value: SM_Human
