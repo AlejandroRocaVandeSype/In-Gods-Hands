@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
         // Get all other managers components like SceneManager, SoundManager ...
         _sceneManager = GetComponent<SceneController>();
         _soundManager = GetComponent<SoundManager>();
+        _WorldManager = GetComponent<World>();
     }
 
     #endregion
@@ -63,12 +64,17 @@ public class GameManager : MonoBehaviour
     public enum ResourceType {  Wood, Mineral };
     public enum ContrusctionType {  Church, House, Forge, Farm };
 
+    public enum PlayerNumber { Player1, Player2 };
+
+    public enum HumanBehaviors {  MovingToResource, MovingToChurch, GatheringResource };
+
     // Level / Scene Management
     private GameStage _GameStage = GameStage.Menu;
 
     // Manager objects 
     private SceneController _sceneManager = null;
     private SoundManager _soundManager = null;
+    private World _WorldManager = null;
 
 
     private void Start()
@@ -101,5 +107,10 @@ public class GameManager : MonoBehaviour
     public SceneController SceneController
     {
         get { return _sceneManager; }
+    }
+
+    public World WorldManager
+    {
+        get { return _WorldManager; }
     }
 }

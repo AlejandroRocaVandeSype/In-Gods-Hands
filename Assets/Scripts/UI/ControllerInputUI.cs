@@ -82,7 +82,7 @@ public class ControllerInputUI : MonoBehaviour
                 _sphere.transform.position = new Vector3(-500, -500, -500);
             }
 
-            Debug.Log(_isDragging);
+          
             if (Input.GetKey(KeyCode.Space))
             {
                 _sphere.transform.position = hit.point;
