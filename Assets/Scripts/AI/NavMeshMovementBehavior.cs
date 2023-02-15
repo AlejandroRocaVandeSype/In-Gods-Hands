@@ -48,4 +48,15 @@ public class NavMeshMovementBehavior : MovementBehavior
         }
     }
 
+    public bool isStopped()
+    {
+        return _NavMeshAgent.isStopped;
+    }
+
+    public void StopMovement()
+    {
+        _NavMeshAgent.isStopped = true;
+        _Target = null;
+    }
+
 }

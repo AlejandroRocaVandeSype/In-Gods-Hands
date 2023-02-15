@@ -4,24 +4,35 @@ using UnityEngine;
 
 public class Human : BasicCharacter
 {
-    [SerializeField] private GameObject _Target = null;
+    private GameObject _Target = null;
     [SerializeField] private Construction[] _Constructions;
     [SerializeField] private Resource[] _Resources;
+    private NavMeshMovementBehavior _NavMeshMovementBehavior;
     // [SerializeField] private float m_AttackRange = 2.0f;
 
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        _NavMeshMovementBehavior= GetComponent<NavMeshMovementBehavior>();
+    }
     private void Start()
     {
         // Expensive method. Use it with caution
-       // PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
+        // PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
 
-       // if (player != null)
-           // m_PlayerTarget = player.gameObject;
+        // if (player != null)
+        // m_PlayerTarget = player.gameObject;
+
+        _Target = _Constructions[0].gameObject;
+        _MovementBehavior.Target = _Target;
     }
 
     // Update is called once per frame
     private void Update()
     {
-
+       
         HandleMovement();
         HandleRotation();
         HandleAttacking();
@@ -32,15 +43,14 @@ public class Human : BasicCharacter
         if (_MovementBehavior == null)
             return;
 
-        _MovementBehavior.Target = _Target;
+       
     }
 
     void HandleRotation()
     {
-        if (_MovementBehavior != null && _Target != null)
-        {
+        if(_MovementBehavior != null)
             _MovementBehavior.DesiredLookatPoint = _Target.transform.position;
-        }
+       
     }
 
     void HandleAttacking()
@@ -60,6 +70,28 @@ public class Human : BasicCharacter
 
             Invoke(KILL_METHODNAME, 0.2f);
         }*/
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+        if(_NavMeshMovementBehavior != null && collision.gameObject.layer != 6)
+        {
+            
+            _NavMeshMovementBehavior.StopMovement();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (_NavMeshMovementBehavior != null && other.gameObject.layer != 6)
+        {
+            Debug.Log(other);
+            _NavMeshMovementBehavior.Target = null;
+            _NavMeshMovementBehavior.StopMovement();
+        }
     }
 
     const string KILL_METHODNAME = "Kill";

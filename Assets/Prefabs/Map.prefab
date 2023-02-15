@@ -825,10 +825,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4050a5b65a5a71b4dac3e7c3bd1f8f3e, type: 2}
+    - target: {fileID: -4017629934318539221, guid: 5d3959e60e59d844f888ab6e97ae285a, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4371469387352723295, guid: 863c68f4a577e0b4b8ed0c7799f6737e, type: 3}
+    - target: {fileID: 316529436531385221, guid: 5d3959e60e59d844f888ab6e97ae285a, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 6358727499526825851, guid: 863c68f4a577e0b4b8ed0c7799f6737e, type: 3}
     - target: {fileID: 919132149155446097, guid: 5d3959e60e59d844f888ab6e97ae285a, type: 3}
       propertyPath: m_Name
       value: SM_Island
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5d3959e60e59d844f888ab6e97ae285a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464246622833775558, guid: 5d3959e60e59d844f888ab6e97ae285a, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1608351014460680636, guid: 863c68f4a577e0b4b8ed0c7799f6737e, type: 3}
     - target: {fileID: 1723211243820573136, guid: 5d3959e60e59d844f888ab6e97ae285a, type: 3}
       propertyPath: m_Layer
       value: 6
