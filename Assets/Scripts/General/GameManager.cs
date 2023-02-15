@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public enum GameStage { Menu, Tutorial, Pause, Playing, GameOver, Restart };
+    public enum ResourceType {  Wood, Mineral };
+    public enum ContrusctionType {  Church, House, Forge, Farm };
 
     // Level / Scene Management
     private GameStage _GameStage = GameStage.Menu;
