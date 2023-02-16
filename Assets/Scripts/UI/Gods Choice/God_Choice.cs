@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class God_Choice : MonoBehaviour
 {
-    public int _godChoice;
+    public int _godChoice; // 0 = Trinity
+                           // 1 = Thunder
+                           // 2 = Color
+                           // 3 = Mother
+                           // 4 = Time
 
     public void TrinityChosen()
     {
