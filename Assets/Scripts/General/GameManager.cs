@@ -61,12 +61,14 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public enum GameStage { Menu, Tutorial, Pause, Playing, GameOver, Restart };
-    public enum ResourceType {  Wood, Mineral };
+    public enum ResourceType {  Wood, Mineral, WoodAndMineral };  // Last type if for the humans know wich resource grab
     public enum ContrusctionType {  Church, House, Forge, Farm };
 
     public enum PlayerNumber { Player1, Player2 };
 
-    public enum HumanBehaviors {  MovingToResource, MovingToChurch, GatheringResource };
+    public enum HumanBehaviors {  MovingToResource, MovingToChurch, GatheringResource, MovingToBuild, Building };
+
+    public enum HumanOrders {  GatherResources, BuildHouse, BuildChurch, NoOrders };
 
     // Level / Scene Management
     private GameStage _GameStage = GameStage.Menu;
