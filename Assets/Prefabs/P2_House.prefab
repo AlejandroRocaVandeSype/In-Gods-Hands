@@ -45,8 +45,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 20, y: 20, z: 20}
+  m_Center: {x: 0, y: 10, z: 0}
 --- !u!114 &7857734230726425096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +60,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Type: 1
+  _Player1TemplateHuman: {fileID: 4190530563619120591, guid: d2959b77805659c4f893d90c28777379, type: 3}
+  _Player2TemplateHuman: {fileID: 4190530563619120591, guid: 93715ccad4c86f84f8a17153959bfd3f, type: 3}
+  _HumanPosition: {fileID: 0}
+  isPlayer1: 1
+  _CurrentTimeSpawn: 0
+  _MaxTimeSpaw: 60
 --- !u!1001 &4881422569920144287
 PrefabInstance:
   m_ObjectHideFlags: 0

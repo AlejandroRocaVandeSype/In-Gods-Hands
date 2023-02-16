@@ -18,7 +18,7 @@ public class PlayerController1 : MonoBehaviour
     public Vector3 _ZoomAmount;
     public Vector3 _NewZoom;
     private float _MaxZoomOut;
-    private const float _MaxZoomIn = 350f;
+    private const float _MaxZoomIn = 850f;
 
     const string HORIZONTAL_AXIS = "Horizontal1";
     const string VERTICAL_AXIS = "Vertical1";
@@ -34,9 +34,9 @@ public class PlayerController1 : MonoBehaviour
     private void Start()
     {
         _NewPosition = transform.position;
-        _MaxRightMovement = _NewPosition.x - 300f;
+        _MaxRightMovement = _NewPosition.x - 650f;
         _MaxVerticalDownMovement = _NewPosition.z - 200f;
-        _MaxVerticalUpMovement = _NewPosition.z + 800f;
+        _MaxVerticalUpMovement = _NewPosition.z + 900f;
 
         if (_CameraTransform != null)
         {

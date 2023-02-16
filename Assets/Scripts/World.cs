@@ -21,8 +21,10 @@ public class World : MonoBehaviour
     [SerializeField] public List<BuildSpot> _BuildSpots;
 
 
+    int buildSpotIdx = -1;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         for(int index = 0; index < _Player1Humans.Count; index++)
         {
@@ -31,7 +33,7 @@ public class World : MonoBehaviour
 
         for (int index = 0; index < _Player2Humans.Count; index++)
         {
-            _Player1Humans[index].PlayerOwner = GameManager.PlayerNumber.Player2;
+            _Player2Humans[index].PlayerOwner = GameManager.PlayerNumber.Player2;
         }
     }
 
@@ -56,7 +58,12 @@ public class World : MonoBehaviour
                 case GameManager.HumanOrders.BuildHouse:
 
                     if(IsThereAFreeBuildSpot())
-                        SelectRandomHuman(GameManager.ContrusctionType.House);
+                        SelectRandomHuman(GameManager.ContrusctionType.House, GameManager.PlayerNumber.Player1);
+                    break;
+                case GameManager.HumanOrders.BuildChurch:
+
+                    if (IsThereAFreeBuildSpot())
+                        SelectRandomHuman(GameManager.ContrusctionType.Church, GameManager.PlayerNumber.Player1);
                     break;
             }
 
@@ -65,6 +72,12 @@ public class World : MonoBehaviour
                 case GameManager.HumanOrders.GatherResources:
                     break;
                 case GameManager.HumanOrders.BuildHouse:
+                    if (IsThereAFreeBuildSpot())
+                        SelectRandomHuman(GameManager.ContrusctionType.House, GameManager.PlayerNumber.Player2);
+                    break;
+                case GameManager.HumanOrders.BuildChurch:
+                    if (IsThereAFreeBuildSpot())
+                        SelectRandomHuman(GameManager.ContrusctionType.Church, GameManager.PlayerNumber.Player2);
                     break;
             }
         }
@@ -72,29 +85,71 @@ public class World : MonoBehaviour
         
     }
 
-    public void SelectRandomHuman(GameManager.ContrusctionType buildType)
+    public void SelectRandomHuman(GameManager.ContrusctionType buildType, GameManager.PlayerNumber player)
     {
-        int random = Random.Range(0, _Player1Humans.Count);
-        GameManager.HumanBehaviors behavior = _Player1Humans[random]._Behavior;
-        if (behavior != GameManager.HumanBehaviors.GatheringResource
-            && behavior != GameManager.HumanBehaviors.MovingToChurch
-            && behavior != GameManager.HumanBehaviors.MovingToBuild
-            && behavior != GameManager.HumanBehaviors.Building)
+        if(player == GameManager.PlayerNumber.Player1)
         {
-            _Player1Humans[random]._Behavior = GameManager.HumanBehaviors.MovingToBuild;
-            _Player1Humans[random]._BuildingToBuild = buildType;
-            _Player1Humans[random].Target = null; 
-            _Player1Base.Order = GameManager.HumanOrders.NoOrders;  // No orders for now
+            int random = Random.Range(0, _Player1Humans.Count);
+            GameManager.HumanBehaviors behavior = _Player1Humans[random]._Behavior;
+            if (behavior != GameManager.HumanBehaviors.GatheringResource
+                && behavior != GameManager.HumanBehaviors.MovingToChurch
+                && behavior != GameManager.HumanBehaviors.MovingToBuild
+                && behavior != GameManager.HumanBehaviors.Building)
+            {
+                _Player1Humans[random]._Behavior = GameManager.HumanBehaviors.MovingToBuild;
+                _Player1Humans[random]._BuildingToBuild = buildType;
+                _Player1Humans[random].Target = null;
+
+                switch (buildType)
+                {
+                    case GameManager.ContrusctionType.House:
+                        _Player1Base.DecWood(buildType);
+                        break;
+                    case GameManager.ContrusctionType.Church:
+                        _Player1Base.DecWood(buildType);
+                        break;
+                }
+
+                _Player1Base.Order = GameManager.HumanOrders.NoOrders;
+            }
         }
+        else
+        {
+            int random = Random.Range(0, _Player2Humans.Count);
+            GameManager.HumanBehaviors behavior = _Player2Humans[random]._Behavior;
+            if (behavior != GameManager.HumanBehaviors.GatheringResource
+                && behavior != GameManager.HumanBehaviors.MovingToChurch
+                && behavior != GameManager.HumanBehaviors.MovingToBuild
+                && behavior != GameManager.HumanBehaviors.Building)
+            {
+                _Player2Humans[random]._Behavior = GameManager.HumanBehaviors.MovingToBuild;
+                _Player2Humans[random]._BuildingToBuild = buildType;
+                _Player2Humans[random].Target = null;
+
+                switch (buildType)
+                {
+                    case GameManager.ContrusctionType.House:
+                        _Player2Base.DecWood(buildType);
+                        break;
+                    case GameManager.ContrusctionType.Church:
+                        _Player2Base.DecWood(buildType);
+                        break;
+                }
+
+                _Player2Base.Order = GameManager.HumanOrders.NoOrders;
+            }
+        }
+        
     }
 
 
     public bool IsThereAFreeBuildSpot()
     {
+        
         for(int index= 0; index < _BuildSpots.Count; index++)
         {
             if (_BuildSpots[index].isFree)
-            {
+            {               
                 return true;
             }
         }

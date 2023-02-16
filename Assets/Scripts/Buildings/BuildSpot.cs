@@ -10,6 +10,7 @@ public class BuildSpot : MonoBehaviour
     [SerializeField] private GameObject _Player2ChurchTemplate;
 
     public bool isFree = true;
+    
 
     public float BuildingTime = 5f;
     // Start is called before the first frame update
@@ -23,17 +24,19 @@ public class BuildSpot : MonoBehaviour
         if(_Player1HouseTemplate!= null)
         {
             Construction c;
-            if(playerHuman == GameManager.PlayerNumber.Player1)
+            GameObject g;
+            if (playerHuman == GameManager.PlayerNumber.Player1)
             {
-                GameObject g = Instantiate(_Player1HouseTemplate, gameObject.transform);
+                g = Instantiate(_Player1HouseTemplate, gameObject.transform);
 
-                c = (Construction) g.GetComponent(typeof(Construction));
+                
             }
             else
             {
-                GameObject g = Instantiate(_Player2HouseTemplate, gameObject.transform);
-                c = (Construction)g.GetComponent(typeof(Construction));
+                 g = Instantiate(_Player2HouseTemplate, gameObject.transform);
+               
             }
+            c = (Construction)g.GetComponent(typeof(Construction));
 
             return c;
         }
@@ -41,19 +44,26 @@ public class BuildSpot : MonoBehaviour
         return null;
     }
 
-    public void BuildChurch(GameManager.PlayerNumber playerHuman)
+    public Construction BuildChurch(GameManager.PlayerNumber playerHuman)
     {
+
         if(_Player1ChurchTemplate!= null)
         {
+            Construction c;
+            GameObject g;
             if (playerHuman == GameManager.PlayerNumber.Player1)
             {
-                Instantiate(_Player1ChurchTemplate, gameObject.transform);
+                  g = Instantiate(_Player1ChurchTemplate, gameObject.transform);
+                 
             }
             else
             {
-                Instantiate(_Player2ChurchTemplate, gameObject.transform);
+                 g = Instantiate(_Player2ChurchTemplate, gameObject.transform);
+                
             }
+            c = (Construction)g.GetComponent(typeof(Construction));
+            return c;
         }
-        
+        return null;
     }
 }
