@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _button2;
     [SerializeField] private GameObject _credits;
     [SerializeField] private GameObject _Controls;
+    [SerializeField] private GameObject _background;
 
     public void Credits()
     {
@@ -27,5 +28,6 @@ public class MainMenu : MonoBehaviour
         _Controls.SetActive(true);
         _button1.SetActive(false);
         _button2.SetActive(false);
+        _background.SetActive(false);
     }
 }
