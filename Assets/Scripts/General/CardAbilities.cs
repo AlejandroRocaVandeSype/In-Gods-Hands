@@ -405,7 +405,7 @@ public class CardAbilities : MonoBehaviour
 
             var vfx = new GameObject("WololoVFX");
             vfx.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-            vfx.transform.localScale = new Vector3(10, 10, 10);
+            vfx.transform.localScale = new Vector3(1, 1, 1);
 
             vfx.AddComponent<VisualEffect>();
             vfx.GetComponent<VisualEffect>().visualEffectAsset = _Effects.Where(obj => obj.name == "VFX_Wololo").SingleOrDefault();
@@ -414,20 +414,17 @@ public class CardAbilities : MonoBehaviour
 
             for (int i = 0; i < destructibles.Length; ++i)
             {
-
-                if (destructibles[i].tag == "Human")
+                
+                if (destructibles[i].tag == "Player")
                 {
-                    List<Human> humans = new List<Human>();
-                    foreach (var human in humans)
-                    {
-                        if (_Player1)
-                            human.PlayerOwner = GameManager.PlayerNumber.Player1;
-                        else
-                        {
-                            human.PlayerOwner = GameManager.PlayerNumber.Player2;
-
-                        }
-                    }
+                    Vector3 tmpLocation = destructibles[i].transform.position;
+                    Destroy(destructibles[i].gameObject);
+                    if(_Player1)
+                    Instantiate(_Human,tmpLocation, Quaternion.identity).PlayerOwner = GameManager.PlayerNumber.Player1;
+                    if(_Player2)
+                    Instantiate(_Human,tmpLocation, Quaternion.identity).PlayerOwner = GameManager.PlayerNumber.Player2;
+                    
+                  
                 }
             }
 

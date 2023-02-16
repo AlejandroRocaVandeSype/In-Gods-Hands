@@ -1458,6 +1458,10 @@ PrefabInstance:
       propertyPath: _CardAbilities
       value: 
       objectReference: {fileID: 982015986}
+    - target: {fileID: 3745954726873051307, guid: 205a8289805b2234ab45f94743c64664, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5293014920614954735, guid: 205a8289805b2234ab45f94743c64664, type: 3}
       propertyPath: m_RootOrder
       value: 0

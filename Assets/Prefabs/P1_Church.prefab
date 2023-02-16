@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3296837929472580929}
   - component: {fileID: 6185482183555016196}
   - component: {fileID: 5802591057476537788}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: P1_Church
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,6 +60,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Type: 0
+  _Player1TemplateHuman: {fileID: 0}
+  _Player2TemplateHuman: {fileID: 0}
+  _HumanPosition: {fileID: 0}
+  isPlayer1: 1
+  _CurrentTimeSpawn: 0
+  _MaxTimeSpaw: 10
 --- !u!1001 &5482717671077262705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111,9 +117,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8277158053328706933, guid: 77c0465ce7565574f873046583d24321, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -5525380005753893801, guid: 77c0465ce7565574f873046583d24321, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 77c0465ce7565574f873046583d24321, type: 3}
       propertyPath: m_Name
       value: SM_church_Pink
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 77c0465ce7565574f873046583d24321, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989972652074480914, guid: 77c0465ce7565574f873046583d24321, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c0465ce7565574f873046583d24321, type: 3}

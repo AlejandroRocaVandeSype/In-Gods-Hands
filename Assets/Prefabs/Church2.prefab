@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 193787210453945287}
   - component: {fileID: 4725221243070476684}
   - component: {fileID: 3683740894743864411}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Church2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Type: 0
+  _Player1TemplateHuman: {fileID: 0}
+  _Player2TemplateHuman: {fileID: 0}
+  _HumanPosition: {fileID: 0}
   isPlayer1: 0
+  _CurrentTimeSpawn: 0
+  _MaxTimeSpaw: 10
 --- !u!65 &3683740894743864411
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -68,9 +73,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 193787210453945287}
     m_Modifications:
+    - target: {fileID: 624501935631097298, guid: f1200cfea437b504987f98af31d3e907, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555580849749992599, guid: f1200cfea437b504987f98af31d3e907, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244693929929067083, guid: f1200cfea437b504987f98af31d3e907, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7307824825995679121, guid: f1200cfea437b504987f98af31d3e907, type: 3}
       propertyPath: m_Name
       value: SM_church_Pink (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7307824825995679121, guid: f1200cfea437b504987f98af31d3e907, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7935706865788292907, guid: f1200cfea437b504987f98af31d3e907, type: 3}
       propertyPath: m_RootOrder
