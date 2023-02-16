@@ -37,6 +37,10 @@ public class CardAbilities : MonoBehaviour
 
     [SerializeField]
     private List<GameObject> _CardEffects;
+    [SerializeField]
+    private Resource _Tree;
+    [SerializeField]
+    private Human _Human;
 
 
     private void Awake()
@@ -109,13 +113,7 @@ public class CardAbilities : MonoBehaviour
 
         if (_Player2)
         {
-            if (_ControllerInputUI.SelectedCard)
             {
-                if (_ControllerInputUI.SelectedCard.name == "CrushHope")
-                {
-                    _ControllerInputUI._AOE.transform.localScale = new Vector3(25, 0.5f, 25);
-
-                }
 
                 //switch (_ControllerInputUI.SelectedCard.name)
                 //{
@@ -181,9 +179,9 @@ public class CardAbilities : MonoBehaviour
 
 
 
-    void DoCardEffect(string name)
+    void DoCardEffect(object[] arr)
     {
-        if (_Player1)
+        if (_ControllerInputUI.Player1)
         {
             if (_ControllerInputUI.SelectedCard)
             {
@@ -235,7 +233,7 @@ public class CardAbilities : MonoBehaviour
         }
 
 
-        if (_Player2)
+        if (_ControllerInputUI.Player2)
         {
             if (_ControllerInputUI.SelectedCard)
             {
@@ -295,7 +293,13 @@ public class CardAbilities : MonoBehaviour
         //Debug.Log("PointerPos: " + _ControllerInputUI.PointerPos);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
-            var BadOmen = Instantiate(_CardEffects.Where(eff => eff.name == "BadOmenEffect").SingleOrDefault(),hit.point,Quaternion.identity);
+            int layerMask = LayerMask.GetMask("SunShine");
+            Collider[] SunShine = Physics.OverlapSphere(hit.point, 50, layerMask, QueryTriggerInteraction.Collide);
+            foreach (var sun in SunShine)
+            {
+                Destroy(sun.gameObject);
+            }
+            var BadOmen = Instantiate(_CardEffects.Where(eff => eff.name == "BadOmenEffect").SingleOrDefault(), hit.point, Quaternion.identity);
 
         }
     }
@@ -315,14 +319,7 @@ public class CardAbilities : MonoBehaviour
         {
             int layerMask = LayerMask.GetMask("Destructible");
             Collider[] destructibles = Physics.OverlapSphere(hit.point, 25, layerMask, QueryTriggerInteraction.Collide);
-
-            var vfx = new GameObject("CrushHopeVFX");
-            vfx.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-            vfx.transform.localScale = new Vector3(10, 10, 10);
-
-            vfx.AddComponent<VisualEffect>();
-            vfx.GetComponent<VisualEffect>().visualEffectAsset = _Effects.Where(obj => obj.name == "VFX_CrushHope").SingleOrDefault();
-            vfx.GetComponent<VisualEffect>().Play();
+            var CrushHope = Instantiate(_CardEffects.Where(eff => eff.name == "CrushHopeEffect").SingleOrDefault(), hit.point, Quaternion.identity);
 
 
             for (int i = 0; i < destructibles.Length; ++i)
@@ -341,29 +338,22 @@ public class CardAbilities : MonoBehaviour
         //Debug.Log("PointerPos: " + _ControllerInputUI.PointerPos);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
-            var SunShineCollider = new GameObject("SunShineCollider");
-            SunShineCollider.AddComponent<SphereCollider>();
-            SunShineCollider.GetComponent<SphereCollider>().radius = 50;
-            SunShineCollider.GetComponent<SphereCollider>().isTrigger = true;
-            SunShineCollider.layer = 11;
 
             int layerMask = LayerMask.GetMask("BadOmens");
-            Collider[] badOmens = Physics.OverlapSphere(hit.point, 50, layerMask, QueryTriggerInteraction.Collide);
-
-            var vfx = new GameObject("SunShineVFX");
-            vfx.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-            vfx.transform.localScale = new Vector3(10, 10, 10);
-
-            vfx.AddComponent<VisualEffect>();
-            vfx.GetComponent<VisualEffect>().visualEffectAsset = _Effects.Where(obj => obj.name == "VFX_SunShine").SingleOrDefault();
-            vfx.GetComponent<VisualEffect>().Play();
-
-
-            for (int i = 0; i < badOmens.Length; ++i)
+            Collider[] BadOmen = Physics.OverlapSphere(hit.point, 50, layerMask, QueryTriggerInteraction.Collide);
+            foreach (var omen in BadOmen)
             {
-
-                Destroy(badOmens[i].gameObject);
+                Destroy(omen.gameObject);
             }
+            var SunShine = Instantiate(_CardEffects.Where(eff => eff.name == "SunShineEffect").SingleOrDefault(), hit.point, Quaternion.identity);
+            var Tree = Instantiate(_Tree, new Vector3(hit.point.x - 25, hit.point.y, hit.point.z), Quaternion.identity);
+            _WorldManager.WoodResources.Add(Tree);
+
+            Tree = Instantiate(_Tree, new Vector3(hit.point.x + 25, hit.point.y, hit.point.z), Quaternion.identity);
+            _WorldManager.WoodResources.Add(Tree);
+
+            Tree = Instantiate(_Tree, new Vector3(hit.point.x, hit.point.y, hit.point.z + 25), Quaternion.identity);
+            _WorldManager.WoodResources.Add(Tree);
 
         }
 
@@ -374,6 +364,29 @@ public class CardAbilities : MonoBehaviour
         //check the max number of people possible according to the houses
         //sopawn 5 or less humans and add them to the player
 
+        Ray ray = _Cam.ScreenPointToRay(_ControllerInputUI.PointerPos);
+        //Debug.Log("PointerPos: " + _ControllerInputUI.PointerPos);
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        {
+            var BackToServe = Instantiate(_CardEffects.Where(eff => eff.name == "BackToServeEffect").SingleOrDefault(), hit.point, Quaternion.identity);
+            if (_Player1)
+            {
+                for (int i = 0; i < 5; ++i)
+                {
+                    var human = Instantiate(_Human, new Vector3(hit.point.x, hit.point.y, hit.point.z), Quaternion.identity);
+                    _WorldManager.Player1Humans.Add(human);
+                }
+            }
+
+            if (_Player2)
+            {
+                for (int i = 0; i < 5; ++i)
+                {
+                    var human = Instantiate(_Human, new Vector3(hit.point.x, hit.point.y, hit.point.z), Quaternion.identity);
+                    _WorldManager.Player2Humans.Add(human);
+                }
+            }
+        }
     }
     void GodsPlan() //drake 
     {
