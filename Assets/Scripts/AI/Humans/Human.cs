@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
@@ -327,7 +329,7 @@ public class Human : BasicCharacter
         {
             for (int index = 0; index < _Churches.Count; index++)
             {
-                if (_Churches[index].isPlayer1)
+                if (_Churches[index] != null && _Churches[index].isPlayer1)
                 {
                     float currentDistance = Vector3.Distance(this.transform.position, _Churches[index].transform.position);
 
@@ -353,7 +355,7 @@ public class Human : BasicCharacter
         {
             for (int index = 0; index < _Churches.Count; index++)
             {
-                if (!_Churches[index].isPlayer1)
+                if (_Churches[index] != null && !_Churches[index].isPlayer1)
                 {
                     float currentDistance = Vector3.Distance(this.transform.position, _Churches[index].transform.position);
 
@@ -374,9 +376,9 @@ public class Human : BasicCharacter
                 }
             }
         }
-        
 
-        _Target = _Churches[churchIdx].gameObject;
+        if (_Churches[churchIdx] != null)
+            _Target = _Churches[churchIdx].gameObject;
 
     }
     private void GetClosestResource(GameManager.ResourceType type)
@@ -390,7 +392,7 @@ public class Human : BasicCharacter
                 // Calculate where the closest resouce is
                 for (int index = 0; index < _WoodResources.Count; index++)
                 {
-                    if(!_WoodResources[index]._IsPlayerHuman )
+                    if(_WoodResources[index] != null && !_WoodResources[index]._IsPlayerHuman )
                     {
                         // Resource is free. Get closest one
                         float currentDistance = Vector3.Distance(this.transform.position, _WoodResources[index].transform.position);
@@ -410,15 +412,18 @@ public class Human : BasicCharacter
                             }
                         }
                     }
-                                
-                    
-
                 }
 
-                _CurrentResource = _WoodResources[resourceIdx];
-                _CurrentResourceIndex = resourceIdx;
-                _CurrentResource._IsPlayerHuman = true; // Resource taken
-                _Target = _WoodResources[resourceIdx].gameObject;
+               if( _WoodResources[resourceIdx] != null)
+                {
+                    _CurrentResource = _WoodResources[resourceIdx];
+                    _CurrentResource._IsPlayerHuman = true; // Resource taken
+                    _CurrentResourceIndex = resourceIdx;
+
+                    _Target = _WoodResources[resourceIdx].gameObject;
+                }
+                
+                
 
                 break;
 

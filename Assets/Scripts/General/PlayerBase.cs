@@ -62,11 +62,11 @@ public class PlayerBase : MonoBehaviour
             GameManager.GetInstance.IsGameOver = true;
             if (gameObject.name == "Player1Base")
             {
-                GameManager.GetInstance._PlayerWinner = GameManager.PlayerNumber.Player2;
+                GameManager.GetInstance._PlayerWinner = GameManager.PlayerNumber.Player1;
             }
             else
             {
-                GameManager.GetInstance._PlayerWinner = GameManager.PlayerNumber.Player1;
+                GameManager.GetInstance._PlayerWinner = GameManager.PlayerNumber.Player2;
             }
             // GameOver
             
@@ -77,14 +77,18 @@ public class PlayerBase : MonoBehaviour
             if(_TotalHumans >= 10)
             {
                 GameManager.GetInstance.IsGameOver = true;
-                Debug.Log(gameObject.name);
+                
                 if (gameObject.name == "Player1Base")
                 {
                     GameManager.GetInstance._PlayerWinner = GameManager.PlayerNumber.Player1;
                 }
                 else
                 {
-                    GameManager.GetInstance._PlayerWinner = GameManager.PlayerNumber.Player2;
+                    if(gameObject.name == "Player2Base")
+                    {
+                        GameManager.GetInstance._PlayerWinner = GameManager.PlayerNumber.Player2;
+                    }
+                   
                 }
 
                 return;

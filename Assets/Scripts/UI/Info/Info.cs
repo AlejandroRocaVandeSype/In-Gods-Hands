@@ -36,26 +36,30 @@ public class Info : MonoBehaviour
 
     private void Start()
     {
-        if(_godManager._godChoice == 0)
+        if(_godManager != null)
         {
-            _trinity.SetActive(true);
+            if (_godManager._godChoice == 0)
+            {
+                _trinity.SetActive(true);
+            }
+            if (_godManager._godChoice == 1)
+            {
+                _thunder.SetActive(true);
+            }
+            if (_godManager._godChoice == 2)
+            {
+                _color.SetActive(true);
+            }
+            if (_godManager._godChoice == 3)
+            {
+                _mother.SetActive(true);
+            }
+            if (_godManager._godChoice == 4)
+            {
+                _timeLord.SetActive(true);
+            }
         }
-        if (_godManager._godChoice == 1)
-        {
-            _thunder.SetActive(true);
-        }
-        if (_godManager._godChoice == 2)
-        {
-            _color.SetActive(true);
-        }
-        if (_godManager._godChoice == 3)
-        {
-            _mother.SetActive(true);
-        }
-        if (_godManager._godChoice == 4)
-        {
-            _timeLord.SetActive(true);
-        }
+        
     }
 
     void Update()

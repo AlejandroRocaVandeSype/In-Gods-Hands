@@ -10,7 +10,7 @@ public class PressAnyKeyButton : MonoBehaviour
     {
         if (Input.anyKey)
         {
-            SceneManager.LoadScene("VFX_test");
+            SceneManager.LoadScene("Test_Alex");
 
         }
     }

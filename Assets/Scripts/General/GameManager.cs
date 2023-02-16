@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
 
         if(IsGameOver)
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(4);
         }
     }
 
