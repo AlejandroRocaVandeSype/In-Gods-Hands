@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour
         _sceneManager = GetComponent<SceneController>();
         _soundManager = GetComponent<SoundManager>();
         _WorldManager = GetComponent<World>();
+
+        _soundManager.PlayMusic();
     }
 
     #endregion
@@ -88,7 +90,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-
+        
     }
 
 
@@ -108,7 +110,8 @@ public class GameManager : MonoBehaviour
 
         if(IsGameOver)
         {
-            SceneManager.LoadScene(4);
+            _soundManager.StopMusic();
+            SceneManager.LoadScene(2);
         }
     }
 

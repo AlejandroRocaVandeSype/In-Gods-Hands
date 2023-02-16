@@ -18,6 +18,9 @@ public class Info : MonoBehaviour
    public TextMeshProUGUI _mineralText;
 
     [SerializeField] private God_Choice _godManager;
+    [SerializeField] private GameObject PlayerBase;
+    private World _WorldManager;
+    [SerializeField] private int winHumans;
 
     [SerializeField] private GameObject _color;
     [SerializeField] private GameObject _mother;
@@ -59,11 +62,13 @@ public class Info : MonoBehaviour
                 _timeLord.SetActive(true);
             }
         }
-        
+
+        _WorldManager = GameManager.GetInstance.WorldManager;
     }
 
     void Update()
     {
+        HumanCounter();
 
         if (_timerOn)
         {
@@ -111,9 +116,16 @@ public class Info : MonoBehaviour
         _mineral += cuantity;
         _mineralText.SetText(_mineral.ToString());
     }
-    public void HumanCounter(int cuantity)
+    public void HumanCounter()
     {
-        _humans += cuantity;
-        _humansText.SetText(_humans.ToString());
+        if(this.gameObject.name == "Canvas_Info_UI2")
+        {
+            _humansText.SetText(_WorldManager.Player2Humans.Count.ToString() + " / " + winHumans);
+        }
+        else
+        {
+            _humansText.SetText(_WorldManager.Player1Humans.Count.ToString() + " / " + winHumans);
+        }
+       
     }
 }

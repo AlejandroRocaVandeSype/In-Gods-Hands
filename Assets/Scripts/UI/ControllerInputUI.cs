@@ -119,7 +119,7 @@ public class ControllerInputUI : MonoBehaviour
                 if (_Player1)
                 {
 
-                    _Instantiated.transform.position = hit.point;
+                    _Instantiated.transform.position = new Vector3(hit.point.x, 45, hit.point.z);
 
                     if (Input.GetKeyDown(KeyCode.Joystick1Button0))
                     {
@@ -150,7 +150,7 @@ public class ControllerInputUI : MonoBehaviour
                 {
                     HitPoint = hit.point;
 
-                    _Instantiated.transform.position = hit.point;
+                    _Instantiated.transform.position = new Vector3(hit.point.x, 45, hit.point.z);
 
                     if (Input.GetKeyDown(KeyCode.Joystick2Button0))
                     {

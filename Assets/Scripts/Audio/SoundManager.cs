@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] private Sound[] m_Sounds;
-   // private const string BACKGROUND_MUSIC = "BackgroundMusic";
+    private const string BACKGROUND_MUSIC = "BackgroundMusic";
 
     private void Awake()
     {
@@ -54,11 +54,11 @@ public class SoundManager : MonoBehaviour
 
     public void PlayMusic()
     {
-        //PlaySound(BACKGROUND_MUSIC, false);
+        PlaySound(BACKGROUND_MUSIC, false);
     }
 
     public void StopMusic()
     {
-        //StopSound(BACKGROUND_MUSIC);
+        StopSound(BACKGROUND_MUSIC);
     }
 }

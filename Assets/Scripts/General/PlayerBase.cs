@@ -57,9 +57,9 @@ public class PlayerBase : MonoBehaviour
             }
         }
         
-        if(_TotalChurches == 0 && inf._timeRemaining2 <= 0)
+        if(_TotalChurches == 0 )
         {
-            GameManager.GetInstance.IsGameOver = true;
+           // GameManager.GetInstance.IsGameOver = true;
             if (gameObject.name == "Player1Base")
             {
                 GameManager.GetInstance._PlayerWinner = GameManager.PlayerNumber.Player1;
@@ -74,7 +74,7 @@ public class PlayerBase : MonoBehaviour
         }
         else
         {
-            if(_TotalHumans >= 10)
+            if(_TotalHumans >= 80)
             {
                 GameManager.GetInstance.IsGameOver = true;
                 

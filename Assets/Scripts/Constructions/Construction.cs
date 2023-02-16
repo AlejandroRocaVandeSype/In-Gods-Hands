@@ -40,6 +40,7 @@ public class Construction : MonoBehaviour
                          GameObject c = Instantiate(_Player1TemplateHuman, gameObject.transform);
 
                         _WorlManager.Player1Humans.Add((Human)c.GetComponent(typeof(Human)));
+                        
 
                     }
                 }
@@ -49,8 +50,8 @@ public class Construction : MonoBehaviour
                     {
                         Transform pos = gameObject.transform;
 
-                        Instantiate(_Player2TemplateHuman, gameObject.transform);
-                        _WorlManager._Player2Base.IncrementHumans();
+                        GameObject c = Instantiate(_Player2TemplateHuman, gameObject.transform);
+                        _WorlManager.Player2Humans.Add((Human)c.GetComponent(typeof(Human)));
                     }
                 }
                 

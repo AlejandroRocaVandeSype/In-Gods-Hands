@@ -1300,8 +1300,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button1: {fileID: 403881203}
   _button2: {fileID: 861696764}
-  _credits: {fileID: 8193466939553262372}
-  _Controls: {fileID: 1105072196}
+  _credits: {fileID: 888284761}
+  _Controls: {fileID: 8193466939553262372}
+  _background: {fileID: 963045980}
 --- !u!1 &1951865277
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,6 +1504,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4152140474248550414, guid: a218f2586ed3a1c4ba4c05cc70d37172, type: 3}
+      propertyPath: _Controls
+      value: 
+      objectReference: {fileID: 1105072196}
     - target: {fileID: 8193466938313193098, guid: a218f2586ed3a1c4ba4c05cc70d37172, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NextScreen
@@ -1617,7 +1622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8193466939507192639, guid: a218f2586ed3a1c4ba4c05cc70d37172, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8193466939527801989, guid: a218f2586ed3a1c4ba4c05cc70d37172, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
