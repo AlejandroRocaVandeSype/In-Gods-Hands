@@ -48,3 +48,5 @@ MonoBehaviour:
   _Player1ChurchTemplate: {fileID: 2204734012011646257, guid: 161e7686794fa3441abd64c6e3eb93c9, type: 3}
   _Player2HouseTemplate: {fileID: 0}
   _Player2ChurchTemplate: {fileID: 0}
+  isFree: 1
+  BuildingTime: 5
