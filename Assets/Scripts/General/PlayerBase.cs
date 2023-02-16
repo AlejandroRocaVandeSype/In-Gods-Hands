@@ -32,7 +32,6 @@ public class PlayerBase : MonoBehaviour
     void Start()
     {
         inf = FindObjectOfType<Info>();
-
         
         _ResourceNeeded = GameManager.ResourceType.Wood;
     }
@@ -60,15 +59,34 @@ public class PlayerBase : MonoBehaviour
         
         if(_TotalChurches == 0 && inf._timeRemaining2 <= 0)
         {
-            // GameOver
             GameManager.GetInstance.IsGameOver = true;
+            if (gameObject.name == "Player1Base")
+            {
+                GameManager.GetInstance._PlayerWinner = GameManager.PlayerNumber.Player2;
+            }
+            else
+            {
+                GameManager.GetInstance._PlayerWinner = GameManager.PlayerNumber.Player1;
+            }
+            // GameOver
+            
             return;
         }
         else
         {
-            if(_TotalHumans >= 50)
+            if(_TotalHumans >= 10)
             {
                 GameManager.GetInstance.IsGameOver = true;
+                Debug.Log(gameObject.name);
+                if (gameObject.name == "Player1Base")
+                {
+                    GameManager.GetInstance._PlayerWinner = GameManager.PlayerNumber.Player1;
+                }
+                else
+                {
+                    GameManager.GetInstance._PlayerWinner = GameManager.PlayerNumber.Player2;
+                }
+
                 return;
             }
             else

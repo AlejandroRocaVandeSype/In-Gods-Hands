@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     public bool IsGameOver = false;
 
+    
+
     public static GameManager GetInstance
     {
         get
@@ -75,6 +77,8 @@ public class GameManager : MonoBehaviour
 
     // Level / Scene Management
     private GameStage _GameStage = GameStage.Menu;
+
+    public PlayerNumber _PlayerWinner;
 
     // Manager objects 
     private SceneController _sceneManager = null;
