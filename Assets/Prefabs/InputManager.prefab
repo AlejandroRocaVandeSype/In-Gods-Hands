@@ -95,6 +95,11 @@ MonoBehaviour:
   - {fileID: 8926484042661614526, guid: 0d34fa8bff8fe7f41b865bf761f4e0a1, type: 3}
   _CardEffects:
   - {fileID: 660986711642737009, guid: 9513c8a5b4a04d14699cfaa100124a0c, type: 3}
+  - {fileID: 745978298360562789, guid: a4fcf348a6daadc44a7b95effdff49c9, type: 3}
+  - {fileID: 745978298360562789, guid: ac51bfcb8b241074a965b5e054094c52, type: 3}
+  - {fileID: 745978298360562789, guid: 8ee7ad687c8b5dd4696bd0e49a1081fa, type: 3}
+  _Tree: {fileID: 2780707264217609170, guid: 85de7713871d77642ae57e74295141ab, type: 3}
+  _Human: {fileID: 2924548928873795037, guid: 93715ccad4c86f84f8a17153959bfd3f, type: 3}
 --- !u!114 &982015991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,3 +134,8 @@ MonoBehaviour:
   - {fileID: 8926484042661614526, guid: 0d34fa8bff8fe7f41b865bf761f4e0a1, type: 3}
   _CardEffects:
   - {fileID: 660986711642737009, guid: 9513c8a5b4a04d14699cfaa100124a0c, type: 3}
+  - {fileID: 745978298360562789, guid: a4fcf348a6daadc44a7b95effdff49c9, type: 3}
+  - {fileID: 745978298360562789, guid: ac51bfcb8b241074a965b5e054094c52, type: 3}
+  - {fileID: 745978298360562789, guid: 8ee7ad687c8b5dd4696bd0e49a1081fa, type: 3}
+  _Tree: {fileID: 2780707264217609170, guid: 85de7713871d77642ae57e74295141ab, type: 3}
+  _Human: {fileID: 2924548928873795037, guid: 93715ccad4c86f84f8a17153959bfd3f, type: 3}

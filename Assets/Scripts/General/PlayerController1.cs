@@ -18,7 +18,7 @@ public class PlayerController1 : MonoBehaviour
     public Vector3 _ZoomAmount;
     public Vector3 _NewZoom;
     private float _MaxZoomOut;
-    private const float _MaxZoomIn = 850f;
+    private const float _MaxZoomIn = 400f;
 
     const string HORIZONTAL_AXIS = "Horizontal1";
     const string VERTICAL_AXIS = "Vertical1";

@@ -16,13 +16,14 @@ public class PlayerBase : MonoBehaviour
 
     // Buildings
     public int _TotalHouses;
-    public int _TotalChurches;
+    public int _TotalChurches = 1;
     public const int _HousesPerChurch = 5;
     const int _ChurchCost = 5;      // WoodAndMetal
     const int _HouseCost = 4;       //  wood
 
     public GameManager.ResourceType _ResourceNeeded;
     private GameManager.HumanOrders _Order;
+    private Info inf;
 
     private float _WaitNoOrders = 1f;
     private float _CurrentWait = 0f;
@@ -30,6 +31,8 @@ public class PlayerBase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        inf = FindObjectOfType<Info>();
+        
         _ResourceNeeded = GameManager.ResourceType.Wood;
     }
 
@@ -54,18 +57,49 @@ public class PlayerBase : MonoBehaviour
             }
         }
         
-        if(_TotalChurches == 0)
+        if(_TotalChurches == 0 && inf._timeRemaining2 <= 0)
         {
-            // GameOver
-            /*
-            // No churches --> Priority Nº 1
-            _ResourceNeeded = GameManager.ResourceType.WoodAndMineral;
-            if (_TotalAmountWood >= _ChurchCost && _TotalAmountMineral >= _ChurchCost)
+            GameManager.GetInstance.IsGameOver = true;
+            if (gameObject.name == "Player1Base")
             {
-                _Order = GameManager.HumanOrders.BuildChurch;
+                GameManager.GetInstance._PlayerWinner = GameManager.PlayerNumber.Player1;
             }
-            */
+            else
+            {
+                GameManager.GetInstance._PlayerWinner = GameManager.PlayerNumber.Player2;
+            }
+            // GameOver
+            
             return;
+        }
+        else
+        {
+            if(_TotalHumans >= 10)
+            {
+                GameManager.GetInstance.IsGameOver = true;
+                
+                if (gameObject.name == "Player1Base")
+                {
+                    GameManager.GetInstance._PlayerWinner = GameManager.PlayerNumber.Player1;
+                }
+                else
+                {
+                    if(gameObject.name == "Player2Base")
+                    {
+                        GameManager.GetInstance._PlayerWinner = GameManager.PlayerNumber.Player2;
+                    }
+                   
+                }
+
+                return;
+            }
+            else
+            {
+                if(inf._endGame)
+                {
+                    GameManager.GetInstance.IsGameOver = true;
+                }
+            }
         }
         
         if(_TotalHouses < (_HousesPerChurch * _TotalChurches) )
@@ -147,5 +181,10 @@ public class PlayerBase : MonoBehaviour
     {
         get { return _Order; }
         set { _Order = value;  }
+    }
+
+    public void IncrementHumans()
+    {
+        _TotalHumans += 1;
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class God_Choice : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class God_Choice : MonoBehaviour
                            // 2 = Color
                            // 3 = Mother
                            // 4 = Time
+    public GameObject _Controls;
 
     public void TrinityChosen()
     {
@@ -30,4 +32,11 @@ public class God_Choice : MonoBehaviour
     {
         _godChoice = 4;
     }
+
+   public void NextScreen()
+    {
+        _Controls.SetActive(true);
+        this.gameObject.SetActive(false);
+    }
+
 }

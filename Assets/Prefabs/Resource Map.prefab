@@ -2694,6 +2694,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7181541688836767731, guid: 2ebfd7489326ba84885ed3aadcc706c1, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181541688836767731, guid: 2ebfd7489326ba84885ed3aadcc706c1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ebfd7489326ba84885ed3aadcc706c1, type: 3}
 --- !u!4 &2689707600808503974 stripped
