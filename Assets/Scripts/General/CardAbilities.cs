@@ -58,122 +58,7 @@ public class CardAbilities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //var hit = _ControllerInputUI._Hit;
-        if (_Player1)
-        {
-            if (_ControllerInputUI.SelectedCard)
-            {
-                //switch (_ControllerInputUI.SelectedCard.name)
-                //{
-                //    case "BadOmens":
-                //        BadOmens();
-                //        break;
-                //    case "HolyWar":
-                //        HolyWar();
-                //        break;
-                //    case "CrushHope":
-                //        CrushHope();
-                //        break;
-                //    case "Sunshine":
-                //        SunShine();
-                //        break;
-                //    case "BackToServe":
-                //        BackToServe();
-                //        break;
-                //    case "GodsWill": //Changed from "God's Will"
-                //        GodsPlan();
-                //        break;
-                //    case "Wololo":
-                //        Wololo();
-                //        break;
-                //    case "DenyProphecy":
-                //        DenyProphecy();
-                //        break;
 
-                //}
-                //Ray ray = _Cam.ScreenPointToRay(_ControllerInputUI.PointerPos);
-                //// Debug.Log("PointerPos: " + _ControllerInputUI.PointerPos);
-                //if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-                //{
-
-                //    int layerMask = LayerMask.GetMask("Destructible");
-                //    Collider[] destructibles = Physics.OverlapSphere(hit.point, 50, layerMask, QueryTriggerInteraction.Collide);
-
-                //    for (int i = 0; i < destructibles.Length; ++i)
-                //    {
-
-                //        Destroy(destructibles[i].gameObject);
-                //    }
-
-
-                //}
-            }
-
-        }
-
-        if (_Player2)
-        {
-            {
-
-                //switch (_ControllerInputUI.SelectedCard.name)
-                //{
-                //    case "BadOmens":
-                //        BadOmens();
-                //        break;
-                //    case "HolyWar":
-                //        HolyWar();
-                //        break;
-                //    case "CrushHope":
-                //        CrushHope();
-                //        break;
-                //    case "Sunshine":
-                //        SunShine();
-                //        break;
-                //    case "BackToServe":
-                //        BackToServe();
-                //        break;
-                //    case "GodsWill": //Changed from "God's Will"
-                //        GodsPlan();
-                //        break;
-                //    case "Wololo":
-                //        Wololo();
-                //        break;
-                //    case "DenyProphecy":
-                //        DenyProphecy();
-                //        break;
-
-                //}
-                //Ray ray = _Cam.ScreenPointToRay(_ControllerInputUI.PointerPos);
-                ////Debug.Log("PointerPos: " + _ControllerInputUI.PointerPos);
-                //if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-                //{
-                //    int layerMask = LayerMask.GetMask("Destructible");
-                //    Collider[] destructibles = Physics.OverlapSphere(hit.point, 50, layerMask, QueryTriggerInteraction.Collide);
-
-                //    for (int i = 0; i < destructibles.Length; ++i)
-                //    {
-
-                //        Destroy(destructibles[i].gameObject);
-                //    }
-
-                //}
-            }
-        }
-
-        //var p1Humans = _WorldManager.Player1Humans;
-        //var p2Humans = _WorldManager.Player2Humans;
-
-        //foreach (var human in p1Humans)
-        //{
-        //    foreach(var humanInArea in humansInArea)
-        //    {
-        //        if(human.name == humanInArea.name)
-        //        {
-        //            Destroy(human);
-        //            Destroy(humanInArea);
-        //        }
-        //    }
-        //}
     }
 
 
@@ -181,108 +66,212 @@ public class CardAbilities : MonoBehaviour
 
     void DoCardEffect(object[] arr)
     {
-        if (_ControllerInputUI.Player1)
+        if ((bool)arr[1])
         {
-            if (_ControllerInputUI.SelectedCard)
+
+            switch ((string)arr[0])
             {
-                switch (_ControllerInputUI.SelectedCard.name)
-                {
-                    case "BadOmens":
-                        BadOmens();
-                        Debug.Log("1");
+                case "BadOmens":
+                    BadOmens();
+                    Debug.Log("1");
 
-                        break;
-                    case "HolyWar":
-                        HolyWar();
-                        Debug.Log("1");
+                    break;
+                case "HolyWar":
+                    HolyWar();
+                    Debug.Log("1");
 
-                        break;
-                    case "CrushHope":
-                        CrushHope();
-                        Debug.Log("1");
+                    break;
+                case "CrushHope":
+                    CrushHope();
+                    Debug.Log("1");
 
-                        break;
-                    case "Sunshine":
-                        SunShine();
-                        Debug.Log("1");
+                    break;
+                case "Sunshine":
+                    SunShine();
+                    Debug.Log("1");
 
-                        break;
-                    case "BackToServe":
-                        BackToServe();
-                        Debug.Log("1");
+                    break;
+                case "BackToServe":
+                    BackToServe();
+                    Debug.Log("1");
 
-                        break;
-                    case "GodsWill": //Changed from "God's Will"
-                        GodsPlan();
-                        Debug.Log("1");
+                    break;
+                case "GodsWill": //Changed from "God's Will"
+                    GodsPlan();
+                    Debug.Log("1");
 
-                        break;
-                    case "Wololo":
-                        Wololo();
-                        Debug.Log("1");
+                    break;
+                case "Wololo":
+                    Wololo();
+                    Debug.Log("1");
 
-                        break;
-                    case "DenyProphecy":
-                        DenyProphecy();
-                        Debug.Log("1");
+                    break;
+                case "DenyProphecy":
+                    DenyProphecy();
+                    Debug.Log("1");
 
-                        break;
+                    break;
 
-                }
             }
+
         }
 
 
-        if (_ControllerInputUI.Player2)
+        else if ((bool)arr[2])
         {
-            if (_ControllerInputUI.SelectedCard)
+            switch ((string)arr[0])
             {
-                switch (_ControllerInputUI.SelectedCard.name)
-                {
-                    case "BadOmens":
-                        BadOmens();
-                        Debug.Log("2");
-                        break;
-                    case "HolyWar":
-                        HolyWar();
-                        Debug.Log("2");
+                case "BadOmens":
+                    BadOmens();
+                    Debug.Log("2");
+                    break;
+                case "HolyWar":
+                    HolyWar();
+                    Debug.Log("2");
 
-                        break;
-                    case "CrushHope":
-                        CrushHope();
-                        Debug.Log("2");
+                    break;
+                case "CrushHope":
+                    CrushHope();
+                    Debug.Log("2");
 
-                        break;
-                    case "Sunshine":
-                        SunShine();
-                        Debug.Log("2");
+                    break;
+                case "Sunshine":
+                    SunShine();
+                    Debug.Log("2");
 
-                        break;
-                    case "BackToServe":
-                        BackToServe();
-                        Debug.Log("2");
+                    break;
+                case "BackToServe":
+                    BackToServe();
+                    Debug.Log("2");
 
-                        break;
-                    case "GodsWill": //Changed from "God's Will"
-                        GodsPlan();
-                        Debug.Log("2");
+                    break;
+                case "GodsWill": //Changed from "God's Will"
+                    GodsPlan();
+                    Debug.Log("2");
 
-                        break;
-                    case "Wololo":
-                        Wololo();
-                        Debug.Log("2");
+                    break;
+                case "Wololo":
+                    Wololo();
+                    Debug.Log("2");
 
-                        break;
-                    case "DenyProphecy":
-                        DenyProphecy();
-                        Debug.Log("2");
+                    break;
+                case "DenyProphecy":
+                    DenyProphecy();
+                    Debug.Log("2");
 
-                        break;
+                    break;
 
-                }
             }
+
         }
     }
+
+
+    //void DoCardEffect(string name)
+    //{
+    //    if (_Player1)
+    //    {
+    //        if (_ControllerInputUI.SelectedCard)
+    //        {
+    //            switch (_ControllerInputUI.SelectedCard.name)
+    //            {
+    //                case "BadOmens":
+    //                    BadOmens();
+    //                    Debug.Log("1");
+
+    //                    break;
+    //                case "HolyWar":
+    //                    HolyWar();
+    //                    Debug.Log("1");
+
+    //                    break;
+    //                case "CrushHope":
+    //                    CrushHope();
+    //                    Debug.Log("1");
+
+    //                    break;
+    //                case "Sunshine":
+    //                    SunShine();
+    //                    Debug.Log("1");
+
+    //                    break;
+    //                case "BackToServe":
+    //                    BackToServe();
+    //                    Debug.Log("1");
+
+    //                    break;
+    //                case "GodsWill": //Changed from "God's Will"
+    //                    GodsPlan();
+    //                    Debug.Log("1");
+
+    //                    break;
+    //                case "Wololo":
+    //                    Wololo();
+    //                    Debug.Log("1");
+
+    //                    break;
+    //                case "DenyProphecy":
+    //                    DenyProphecy();
+    //                    Debug.Log("1");
+
+    //                    break;
+
+    //            }
+    //        }
+    //    }
+
+
+    //    if (_Player2)
+    //    {
+    //        if (_ControllerInputUI.SelectedCard)
+    //        {
+    //            switch (_ControllerInputUI.SelectedCard.name)
+    //            {
+    //                case "BadOmens":
+    //                    BadOmens();
+    //                    Debug.Log("2");
+    //                    break;
+    //                case "HolyWar":
+    //                    HolyWar();
+    //                    Debug.Log("2");
+
+    //                    break;
+    //                case "CrushHope":
+    //                    CrushHope();
+    //                    Debug.Log("2");
+
+    //                    break;
+    //                case "Sunshine":
+    //                    SunShine();
+    //                    Debug.Log("2");
+
+    //                    break;
+    //                case "BackToServe":
+    //                    BackToServe();
+    //                    Debug.Log("2");
+
+    //                    break;
+    //                case "GodsWill": //Changed from "God's Will"
+    //                    GodsPlan();
+    //                    Debug.Log("2");
+
+    //                    break;
+    //                case "Wololo":
+    //                    Wololo();
+    //                    Debug.Log("2");
+
+    //                    break;
+    //                case "DenyProphecy":
+    //                    DenyProphecy();
+    //                    Debug.Log("2");
+
+    //                    break;
+
+    //            }
+    //        }
+    //    }
+    //}
+
 
 
     void BadOmens()
@@ -414,17 +403,17 @@ public class CardAbilities : MonoBehaviour
 
             for (int i = 0; i < destructibles.Length; ++i)
             {
-                
+
                 if (destructibles[i].tag == "Player")
                 {
                     Vector3 tmpLocation = destructibles[i].transform.position;
                     Destroy(destructibles[i].gameObject);
-                    if(_Player1)
-                    Instantiate(_Human,tmpLocation, Quaternion.identity).PlayerOwner = GameManager.PlayerNumber.Player1;
-                    if(_Player2)
-                    Instantiate(_Human,tmpLocation, Quaternion.identity).PlayerOwner = GameManager.PlayerNumber.Player2;
-                    
-                  
+                    if (_Player1)
+                        Instantiate(_Human, tmpLocation, Quaternion.identity).PlayerOwner = GameManager.PlayerNumber.Player1;
+                    if (_Player2)
+                        Instantiate(_Human, tmpLocation, Quaternion.identity).PlayerOwner = GameManager.PlayerNumber.Player2;
+
+
                 }
             }
 

@@ -51,7 +51,7 @@ public class ControllerInputUI : MonoBehaviour
         _Instantiated = Instantiate(_AOE, new Vector3(0, 0, 0), Quaternion.identity);
         _InstancedAOEScale = _Instantiated.transform.localScale = new Vector3(_Instantiated.transform.localScale.x * _AOEScale, _Instantiated.transform.localScale.y, _Instantiated.transform.localScale.z * _AOEScale);
         _Instantiated.active = false;
-        if (_Player1)
+        if (_Player1 == true)
         {
             JOYSTICK_HORIZONTAL_AXIS = "Horizontal1RightJoystick";
             JOYSTICK_VERTICAL_AXIS = "Vertical1RightJoystick";
@@ -59,7 +59,7 @@ public class ControllerInputUI : MonoBehaviour
             DPAD_HORIZONTAL_AXIS = "Dpad1Horizontal";
             DPAD_VERTICAL_AXIS = "Dpad1Vertical";
         }
-        else if (_Player2)
+        else if (_Player2 == true)
         {
             JOYSTICK_HORIZONTAL_AXIS = "Horizontal2RightJoystick";
             JOYSTICK_VERTICAL_AXIS = "Vertical2RightJoystick";
@@ -106,7 +106,7 @@ public class ControllerInputUI : MonoBehaviour
 
             RaycastHit hit;
             Ray ray = _Cam.ScreenPointToRay(_Pointer.position);
-           int layerMask =~ LayerMask.GetMask("Destructible");
+           int layerMask =~ LayerMask.GetMask("Destructible") | LayerMask.GetMask("BadOmens") | LayerMask.GetMask("SunShine");
             if (Physics.Raycast(ray, out hit, Mathf.Infinity,layerMask))
             {
                 HitPoint = hit.point;
@@ -119,7 +119,7 @@ public class ControllerInputUI : MonoBehaviour
                 if (_Player1)
                 {
 
-                    _Instantiated.transform.position = hit.point;
+                    _Instantiated.transform.position = new Vector3(hit.point.x, 45, hit.point.z);
 
                     if (Input.GetKeyDown(KeyCode.Joystick1Button0))
                     {
@@ -148,9 +148,7 @@ public class ControllerInputUI : MonoBehaviour
                 }
                 if (_Player2)
                 {
-                    HitPoint = hit.point;
-
-                    _Instantiated.transform.position = hit.point;
+                    _Instantiated.transform.position = new Vector3(hit.point.x, 52, hit.point.z);
 
                     if (Input.GetKeyDown(KeyCode.Joystick2Button0))
                     {
