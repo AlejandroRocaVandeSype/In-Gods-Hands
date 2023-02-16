@@ -23,6 +23,7 @@ public class PlayerBase : MonoBehaviour
 
     public GameManager.ResourceType _ResourceNeeded;
     private GameManager.HumanOrders _Order;
+    private Info inf;
 
     private float _WaitNoOrders = 1f;
     private float _CurrentWait = 0f;
@@ -30,6 +31,8 @@ public class PlayerBase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        inf = FindObjectOfType<Info>();
+
         
         _ResourceNeeded = GameManager.ResourceType.Wood;
     }
@@ -55,10 +58,10 @@ public class PlayerBase : MonoBehaviour
             }
         }
         
-        if(_TotalChurches == 0)
+        if(_TotalChurches == 0 && inf._timeRemaining2 <= 0)
         {
             // GameOver
-            //GameManager.GetInstance.IsGameOver = true;
+            GameManager.GetInstance.IsGameOver = true;
             return;
         }
         else
@@ -70,7 +73,10 @@ public class PlayerBase : MonoBehaviour
             }
             else
             {
-                
+                if(inf._endGame)
+                {
+                    GameManager.GetInstance.IsGameOver = true;
+                }
             }
         }
         

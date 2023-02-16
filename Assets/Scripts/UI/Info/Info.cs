@@ -64,7 +64,7 @@ public class Info : MonoBehaviour
         float minutes = Mathf.FloorToInt(currentTime / 60);
         float seconds = Mathf.FloorToInt(currentTime % 60);
 
-        _timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        _timerText2.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
     public void WoodCounter(int cuantity)
     {        

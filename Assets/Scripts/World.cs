@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class World : MonoBehaviour
@@ -20,7 +21,6 @@ public class World : MonoBehaviour
 
     [SerializeField] public List<BuildSpot> _BuildSpots;
 
-
     int buildSpotIdx = -1;
 
     // Start is called before the first frame update
@@ -37,6 +37,10 @@ public class World : MonoBehaviour
         }
     }
 
+    public void Start()
+    {
+     
+    }
     // Update is called once per frame
     void Update()
     {
