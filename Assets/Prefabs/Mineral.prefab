@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Type: 1
   _IsPlayerHuman: 0
+  isRecharging: 0
 --- !u!65 &4285417533501292976
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -56,7 +57,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 616482964951227961}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 17, y: 10, z: 17}
