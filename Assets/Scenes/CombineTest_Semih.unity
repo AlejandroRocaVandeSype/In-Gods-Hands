@@ -658,6 +658,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 982015986, guid: ff7c04fad6c7e784ba54509db404055c, type: 3}
+      propertyPath: _Cam
+      value: 
+      objectReference: {fileID: 386480512}
+    - target: {fileID: 982015986, guid: ff7c04fad6c7e784ba54509db404055c, type: 3}
+      propertyPath: _PointerP1
+      value: 
+      objectReference: {fileID: 1834106044}
+    - target: {fileID: 982015986, guid: ff7c04fad6c7e784ba54509db404055c, type: 3}
+      propertyPath: _PointerP2
+      value: 
+      objectReference: {fileID: 207419221}
+    - target: {fileID: 982015986, guid: ff7c04fad6c7e784ba54509db404055c, type: 3}
+      propertyPath: _CardManagerP1
+      value: 
+      objectReference: {fileID: 1639197533}
+    - target: {fileID: 982015986, guid: ff7c04fad6c7e784ba54509db404055c, type: 3}
+      propertyPath: _CardManagerP2
+      value: 
+      objectReference: {fileID: 1107616020}
+    - target: {fileID: 982015986, guid: ff7c04fad6c7e784ba54509db404055c, type: 3}
+      propertyPath: _ControllerInputUI
+      value: 
+      objectReference: {fileID: 1834106046}
+    - target: {fileID: 982015991, guid: ff7c04fad6c7e784ba54509db404055c, type: 3}
+      propertyPath: _Cam
+      value: 
+      objectReference: {fileID: 1251870322}
+    - target: {fileID: 982015991, guid: ff7c04fad6c7e784ba54509db404055c, type: 3}
+      propertyPath: _PointerP1
+      value: 
+      objectReference: {fileID: 1834106044}
+    - target: {fileID: 982015991, guid: ff7c04fad6c7e784ba54509db404055c, type: 3}
+      propertyPath: _PointerP2
+      value: 
+      objectReference: {fileID: 207419221}
+    - target: {fileID: 982015991, guid: ff7c04fad6c7e784ba54509db404055c, type: 3}
+      propertyPath: _CardManagerP1
+      value: 
+      objectReference: {fileID: 1639197533}
+    - target: {fileID: 982015991, guid: ff7c04fad6c7e784ba54509db404055c, type: 3}
+      propertyPath: _CardManagerP2
+      value: 
+      objectReference: {fileID: 1107616020}
+    - target: {fileID: 982015991, guid: ff7c04fad6c7e784ba54509db404055c, type: 3}
+      propertyPath: _ControllerInputUI
+      value: 
+      objectReference: {fileID: 207419223}
     - target: {fileID: 4793267734610959212, guid: ff7c04fad6c7e784ba54509db404055c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -727,73 +775,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d195a0939de6894c83d3ac19933f5f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &982015982 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4793267734610959215, guid: ff7c04fad6c7e784ba54509db404055c, type: 3}
+--- !u!114 &982015986 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 982015986, guid: ff7c04fad6c7e784ba54509db404055c, type: 3}
   m_PrefabInstance: {fileID: 819390735}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &982015986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 982015982}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c5bf3dc3ed68b04c93eb9ceff835d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Cam: {fileID: 386480512}
-  _Player1: 1
-  _Player2: 0
-  _ControllerInputUI: {fileID: 1834106046}
-  _CardManager: {fileID: 1639197533}
-  _PointerP1: {fileID: 1834106044}
-  _PointerP2: {fileID: 207419221}
-  _Effects:
-  - {fileID: 8926484042661614526, guid: b999082812cf2d841aae9a75e302fa7d, type: 3}
-  - {fileID: 8926484042661614526, guid: 47aa86b76ae1e4848a66d716b6b32e26, type: 3}
-  - {fileID: 8926484042661614526, guid: d1c2874a2c6af0346a92f19a954da8af, type: 3}
-  - {fileID: 8926484042661614526, guid: 2e023f3de7fc16d46b8739c7bfac6750, type: 3}
-  - {fileID: 8926484042661614526, guid: 70cb7ed2bbb038d4e8d251c2887d26ac, type: 3}
-  - {fileID: 8926484042661614526, guid: c2e9e6b7abb3dcb4ba0be3b7f1fa8ae5, type: 3}
-  - {fileID: 8926484042661614526, guid: 0a9908ff78f5bb94690df197f7cd0747, type: 3}
-  - {fileID: 8926484042661614526, guid: c2890d4321f531742af00d4367bac7de, type: 3}
-  - {fileID: 8926484042661614526, guid: 2dbf7eb311e659247bbbce2277b10f44, type: 3}
-  - {fileID: 8926484042661614526, guid: bb3af45bd27ba7e4388a05333e3b96f1, type: 3}
-  - {fileID: 8926484042661614526, guid: 0d34fa8bff8fe7f41b865bf761f4e0a1, type: 3}
---- !u!114 &982015991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 982015982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5bf3dc3ed68b04c93eb9ceff835d48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Cam: {fileID: 1251870322}
-  _Player1: 0
-  _Player2: 1
-  _ControllerInputUI: {fileID: 207419223}
-  _CardManager: {fileID: 1107616020}
-  _PointerP1: {fileID: 1834106044}
-  _PointerP2: {fileID: 207419221}
-  _Effects:
-  - {fileID: 8926484042661614526, guid: b999082812cf2d841aae9a75e302fa7d, type: 3}
-  - {fileID: 8926484042661614526, guid: 47aa86b76ae1e4848a66d716b6b32e26, type: 3}
-  - {fileID: 8926484042661614526, guid: d1c2874a2c6af0346a92f19a954da8af, type: 3}
-  - {fileID: 8926484042661614526, guid: 2e023f3de7fc16d46b8739c7bfac6750, type: 3}
-  - {fileID: 8926484042661614526, guid: 70cb7ed2bbb038d4e8d251c2887d26ac, type: 3}
-  - {fileID: 8926484042661614526, guid: c2e9e6b7abb3dcb4ba0be3b7f1fa8ae5, type: 3}
-  - {fileID: 8926484042661614526, guid: 0a9908ff78f5bb94690df197f7cd0747, type: 3}
-  - {fileID: 8926484042661614526, guid: c2890d4321f531742af00d4367bac7de, type: 3}
-  - {fileID: 8926484042661614526, guid: 2dbf7eb311e659247bbbce2277b10f44, type: 3}
-  - {fileID: 8926484042661614526, guid: bb3af45bd27ba7e4388a05333e3b96f1, type: 3}
-  - {fileID: 8926484042661614526, guid: 0d34fa8bff8fe7f41b865bf761f4e0a1, type: 3}
 --- !u!1001 &983574923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -979,11 +971,10 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1666198003201682857, guid: 205a8289805b2234ab45f94743c64664, type: 3}
   m_PrefabInstance: {fileID: 1964356548}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1107616020
+--- !u!114 &1107616020 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1107616020, guid: 205a8289805b2234ab45f94743c64664, type: 3}
+  m_PrefabInstance: {fileID: 1964356548}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107616015}
   m_Enabled: 1
@@ -991,17 +982,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d4a9cf4b3dcb345a59cfb76c0b01a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _CardImages:
-  - {fileID: 21300000, guid: 61ec8bace0365914b88ca5db22b5c9bb, type: 3}
-  - {fileID: 21300000, guid: ff0038f5e8cdec74db3d6970f496b1db, type: 3}
-  - {fileID: 21300000, guid: 70d928177724b39418d4625d1149056b, type: 3}
-  - {fileID: 21300000, guid: 3d8bc2420be4be044b6d658f14a52a49, type: 3}
-  - {fileID: 21300000, guid: 0cf34617ff53b5e48b8b9c55d58152be, type: 3}
-  - {fileID: 21300000, guid: f5fceba6d5af3e145bbb1d82bfd49618, type: 3}
-  - {fileID: 21300000, guid: 23ed06ac6b70e834380a7f27657790b6, type: 3}
-  - {fileID: 21300000, guid: d78fb24d8a493104e9171b120d35e3f1, type: 3}
-  _ReverseCard: {fileID: 21300000, guid: 0d143a0cc3a62f249a5367066d2d5f62, type: 3}
-  _CardCooldown: 10
 --- !u!1 &1154817429
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,10 +1164,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Human
       objectReference: {fileID: 0}
-    - target: {fileID: 6374652156700527654, guid: 93715ccad4c86f84f8a17153959bfd3f, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7924410590141706208, guid: 93715ccad4c86f84f8a17153959bfd3f, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1250,11 +1226,10 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8756660696262835221, guid: 205a8289805b2234ab45f94743c64664, type: 3}
   m_PrefabInstance: {fileID: 1964356548}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1639197533
+--- !u!114 &1639197533 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1639197533, guid: 205a8289805b2234ab45f94743c64664, type: 3}
+  m_PrefabInstance: {fileID: 1964356548}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639197528}
   m_Enabled: 1
@@ -1262,17 +1237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d4a9cf4b3dcb345a59cfb76c0b01a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _CardImages:
-  - {fileID: 21300000, guid: 61ec8bace0365914b88ca5db22b5c9bb, type: 3}
-  - {fileID: 21300000, guid: ff0038f5e8cdec74db3d6970f496b1db, type: 3}
-  - {fileID: 21300000, guid: 70d928177724b39418d4625d1149056b, type: 3}
-  - {fileID: 21300000, guid: 3d8bc2420be4be044b6d658f14a52a49, type: 3}
-  - {fileID: 21300000, guid: 0cf34617ff53b5e48b8b9c55d58152be, type: 3}
-  - {fileID: 21300000, guid: f5fceba6d5af3e145bbb1d82bfd49618, type: 3}
-  - {fileID: 21300000, guid: 23ed06ac6b70e834380a7f27657790b6, type: 3}
-  - {fileID: 21300000, guid: d78fb24d8a493104e9171b120d35e3f1, type: 3}
-  _ReverseCard: {fileID: 21300000, guid: 0d143a0cc3a62f249a5367066d2d5f62, type: 3}
-  _CardCooldown: 10
 --- !u!1 &1646466500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,96 +1336,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 152703917}
     m_Modifications:
-    - target: {fileID: 1666198003201682853, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1666198003201682853, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1666198003201682853, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1666198003201682859, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3508967760552585770, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 31a2654d393cecf4f8d7695763a14d41, type: 3}
-    - target: {fileID: 3508967760552585771, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: _AOE
-      value: 
-      objectReference: {fileID: 8611298167542742446, guid: b3acbd360f44b614aabaac297c1dab56, type: 3}
-    - target: {fileID: 3508967760552585771, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: _CardManager
-      value: 
-      objectReference: {fileID: 1639197533}
     - target: {fileID: 3508967760552585771, guid: 205a8289805b2234ab45f94743c64664, type: 3}
       propertyPath: _CardAbilities
       value: 
       objectReference: {fileID: 982015986}
-    - target: {fileID: 3508967760552585771, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: _CardAbilitiesP1
-      value: 
-      objectReference: {fileID: 982015986}
-    - target: {fileID: 3508967760552585771, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: _CardAbilitiesP2
-      value: 
-      objectReference: {fileID: 982015986}
-    - target: {fileID: 3508967760552585772, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3508967760552585772, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3508967760552585772, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -510.00012
-      objectReference: {fileID: 0}
-    - target: {fileID: 3508967760552585772, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 40.000015
-      objectReference: {fileID: 0}
-    - target: {fileID: 3508967760554106696, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3508967760554106696, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3508967760554106696, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 449.99988
-      objectReference: {fileID: 0}
-    - target: {fileID: 3508967760554106696, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 39.999947
-      objectReference: {fileID: 0}
-    - target: {fileID: 3508967760554106702, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 739db50b0dce5034187ecc39cfdac0ef, type: 3}
-    - target: {fileID: 3508967760554106703, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: _AOE
-      value: 
-      objectReference: {fileID: 8611298167542742446, guid: 5a29e024fef1b16419133e23d6c0eebf, type: 3}
-    - target: {fileID: 3508967760554106703, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: _CardManager
-      value: 
-      objectReference: {fileID: 1107616020}
     - target: {fileID: 3508967760554106703, guid: 205a8289805b2234ab45f94743c64664, type: 3}
       propertyPath: _CardAbilities
-      value: 
-      objectReference: {fileID: 982015986}
-    - target: {fileID: 3508967760554106703, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: _CardAbilitiesP1
       value: 
       objectReference: {fileID: 982015986}
     - target: {fileID: 5293014920614954735, guid: 205a8289805b2234ab45f94743c64664, type: 3}
@@ -1511,22 +1391,6 @@ PrefabInstance:
     - target: {fileID: 6630522099708208881, guid: 205a8289805b2234ab45f94743c64664, type: 3}
       propertyPath: m_Name
       value: Map
-      objectReference: {fileID: 0}
-    - target: {fileID: 8756660696262835223, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8756660696262835225, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8756660696262835225, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8756660696262835225, guid: 205a8289805b2234ab45f94743c64664, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 205a8289805b2234ab45f94743c64664, type: 3}

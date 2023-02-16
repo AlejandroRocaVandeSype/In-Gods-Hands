@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4793267734610959212}
   - component: {fileID: 4793267734610959213}
   - component: {fileID: 4793267734610959214}
+  - component: {fileID: 982015986}
+  - component: {fileID: 982015991}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -59,3 +61,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Deck: {fileID: 0}
+--- !u!114 &982015986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4793267734610959215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5bf3dc3ed68b04c93eb9ceff835d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Cam: {fileID: 0}
+  _Player1: 1
+  _Player2: 0
+  _ControllerInputUI: {fileID: 0}
+  _CardManagerP1: {fileID: 0}
+  _CardManagerP2: {fileID: 0}
+  _PointerP1: {fileID: 0}
+  _PointerP2: {fileID: 0}
+  _Effects:
+  - {fileID: 8926484042661614526, guid: b999082812cf2d841aae9a75e302fa7d, type: 3}
+  - {fileID: 8926484042661614526, guid: 47aa86b76ae1e4848a66d716b6b32e26, type: 3}
+  - {fileID: 8926484042661614526, guid: d1c2874a2c6af0346a92f19a954da8af, type: 3}
+  - {fileID: 8926484042661614526, guid: 2e023f3de7fc16d46b8739c7bfac6750, type: 3}
+  - {fileID: 8926484042661614526, guid: 70cb7ed2bbb038d4e8d251c2887d26ac, type: 3}
+  - {fileID: 8926484042661614526, guid: c2e9e6b7abb3dcb4ba0be3b7f1fa8ae5, type: 3}
+  - {fileID: 8926484042661614526, guid: 0a9908ff78f5bb94690df197f7cd0747, type: 3}
+  - {fileID: 8926484042661614526, guid: c2890d4321f531742af00d4367bac7de, type: 3}
+  - {fileID: 8926484042661614526, guid: 2dbf7eb311e659247bbbce2277b10f44, type: 3}
+  - {fileID: 8926484042661614526, guid: bb3af45bd27ba7e4388a05333e3b96f1, type: 3}
+  - {fileID: 8926484042661614526, guid: 0d34fa8bff8fe7f41b865bf761f4e0a1, type: 3}
+  _CardEffects:
+  - {fileID: 660986711642737009, guid: 9513c8a5b4a04d14699cfaa100124a0c, type: 3}
+--- !u!114 &982015991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4793267734610959215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5bf3dc3ed68b04c93eb9ceff835d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Cam: {fileID: 0}
+  _Player1: 0
+  _Player2: 1
+  _ControllerInputUI: {fileID: 0}
+  _CardManagerP1: {fileID: 0}
+  _CardManagerP2: {fileID: 0}
+  _PointerP1: {fileID: 0}
+  _PointerP2: {fileID: 0}
+  _Effects:
+  - {fileID: 8926484042661614526, guid: b999082812cf2d841aae9a75e302fa7d, type: 3}
+  - {fileID: 8926484042661614526, guid: 47aa86b76ae1e4848a66d716b6b32e26, type: 3}
+  - {fileID: 8926484042661614526, guid: d1c2874a2c6af0346a92f19a954da8af, type: 3}
+  - {fileID: 8926484042661614526, guid: 2e023f3de7fc16d46b8739c7bfac6750, type: 3}
+  - {fileID: 8926484042661614526, guid: 70cb7ed2bbb038d4e8d251c2887d26ac, type: 3}
+  - {fileID: 8926484042661614526, guid: c2e9e6b7abb3dcb4ba0be3b7f1fa8ae5, type: 3}
+  - {fileID: 8926484042661614526, guid: 0a9908ff78f5bb94690df197f7cd0747, type: 3}
+  - {fileID: 8926484042661614526, guid: c2890d4321f531742af00d4367bac7de, type: 3}
+  - {fileID: 8926484042661614526, guid: 2dbf7eb311e659247bbbce2277b10f44, type: 3}
+  - {fileID: 8926484042661614526, guid: bb3af45bd27ba7e4388a05333e3b96f1, type: 3}
+  - {fileID: 8926484042661614526, guid: 0d34fa8bff8fe7f41b865bf761f4e0a1, type: 3}
+  _CardEffects:
+  - {fileID: 660986711642737009, guid: 9513c8a5b4a04d14699cfaa100124a0c, type: 3}
