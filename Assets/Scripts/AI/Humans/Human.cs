@@ -161,6 +161,7 @@ public class Human : BasicCharacter
                 }
                 else
                 {
+                    c.isPlayer1= false;
                     _WorldManager.Player2Churchs.Add(c);
                 }
                 
@@ -269,15 +270,7 @@ public class Human : BasicCharacter
     {
         if(_Target == null)
         {
-            if (_Churches.Count > 1)
-            {
-                GetClosestChurch();
-            }
-            else
-            {
-                // Only one church go to this one
-                _Target = _Churches[0].gameObject;
-            }
+            GetClosestChurch();
         }
        
 
@@ -330,25 +323,58 @@ public class Human : BasicCharacter
         float closestChurch = -1;
         int churchIdx = 0;
 
-        for(int index = 0; index < _Churches.Count; index++)
+        if(_PlayerOwner == GameManager.PlayerNumber.Player1)
         {
-            float currentDistance = Vector3.Distance(this.transform.position, _Churches[index].transform.position);
-
-            if (closestChurch == -1)
+            for (int index = 0; index < _Churches.Count; index++)
             {
-                closestChurch = currentDistance;
-                churchIdx = index;
-
-            }
-            else
-            {
-                if (currentDistance < closestChurch)
+                if (_Churches[index].isPlayer1)
                 {
-                    closestChurch = currentDistance;
-                    churchIdx = index;
+                    float currentDistance = Vector3.Distance(this.transform.position, _Churches[index].transform.position);
+
+                    if (closestChurch == -1)
+                    {
+                        closestChurch = currentDistance;
+                        churchIdx = index;
+
+                    }
+                    else
+                    {
+                        if (currentDistance < closestChurch)
+                        {
+                            closestChurch = currentDistance;
+                            churchIdx = index;
+                        }
+                    }
+                }
+                
+            }
+        }
+        else
+        {
+            for (int index = 0; index < _Churches.Count; index++)
+            {
+                if (!_Churches[index].isPlayer1)
+                {
+                    float currentDistance = Vector3.Distance(this.transform.position, _Churches[index].transform.position);
+
+                    if (closestChurch == -1)
+                    {
+                        closestChurch = currentDistance;
+                        churchIdx = index;
+
+                    }
+                    else
+                    {
+                        if (currentDistance < closestChurch)
+                        {
+                            closestChurch = currentDistance;
+                            churchIdx = index;
+                        }
+                    }
                 }
             }
         }
+        
 
         _Target = _Churches[churchIdx].gameObject;
 
@@ -397,7 +423,7 @@ public class Human : BasicCharacter
                 break;
 
 
-                case GameManager.ResourceType.Mineral: 
+                case GameManager.ResourceType.WoodAndMineral: 
                 break;
         }
     }

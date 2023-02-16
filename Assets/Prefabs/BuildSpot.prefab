@@ -47,8 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Player1HouseTemplate: {fileID: 6053796090777527816, guid: 5614108a44c4e0c4591eced021d4533e, type: 3}
   _Player1ChurchTemplate: {fileID: 2204734012011646257, guid: 161e7686794fa3441abd64c6e3eb93c9, type: 3}
-  _Player2HouseTemplate: {fileID: 0}
-  _Player2ChurchTemplate: {fileID: 0}
+  _Player2HouseTemplate: {fileID: 5949305923864380703, guid: c399c967e5af8d746b82ec9216c0ef45, type: 3}
+  _Player2ChurchTemplate: {fileID: 7004764135709590192, guid: 7e969843b4ae8e54fbd95e1d68cd4593, type: 3}
   isFree: 1
   BuildingTime: 5
 --- !u!1001 &886292463992059545
@@ -117,6 +117,10 @@ PrefabInstance:
     - target: {fileID: 8611298167542742446, guid: b3acbd360f44b614aabaac297c1dab56, type: 3}
       propertyPath: m_Name
       value: Area of effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611298167542742446, guid: b3acbd360f44b614aabaac297c1dab56, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3acbd360f44b614aabaac297c1dab56, type: 3}

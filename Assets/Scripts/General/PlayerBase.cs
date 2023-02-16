@@ -11,14 +11,14 @@ public class PlayerBase : MonoBehaviour
     const int _MineralIncAmount = 1;
 
     // Humans
-    public int _TotalHumans;
+    public int _TotalHumans = 4;
     public int _MaxHumans = 10;          // Max humans allow
 
     // Buildings
     public int _TotalHouses;
     public int _TotalChurches;
     public const int _HousesPerChurch = 5;
-    const int _ChurchCost = 3;      // WoodAndMetal
+    const int _ChurchCost = 5;      // WoodAndMetal
     const int _HouseCost = 4;       //  wood
 
     public GameManager.ResourceType _ResourceNeeded;
@@ -37,7 +37,8 @@ public class PlayerBase : MonoBehaviour
     void Update()
     {
 
-        _TotalHumans = _TotalHouses * 10; // Each house increments the max amount of humans by then
+        if(_TotalHouses >0)
+            _MaxHumans = _TotalHouses * 5; // Each house increments the max amount of humans by then
 
         if (_Order == GameManager.HumanOrders.NoOrders)
         {

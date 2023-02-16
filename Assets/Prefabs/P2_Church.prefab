@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Type: 0
+  isPlayer1: 1
 --- !u!65 &99336363704918785
 BoxCollider:
   m_ObjectHideFlags: 0

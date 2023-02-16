@@ -24,7 +24,7 @@ public class World : MonoBehaviour
     int buildSpotIdx = -1;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         for(int index = 0; index < _Player1Humans.Count; index++)
         {
@@ -33,7 +33,7 @@ public class World : MonoBehaviour
 
         for (int index = 0; index < _Player2Humans.Count; index++)
         {
-            _Player1Humans[index].PlayerOwner = GameManager.PlayerNumber.Player2;
+            _Player2Humans[index].PlayerOwner = GameManager.PlayerNumber.Player2;
         }
     }
 
