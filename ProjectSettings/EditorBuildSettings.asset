@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VFX_test.unity
     guid: 5bd52ec4f01031a4090fa8eb5041db73
+  - enabled: 1
+    path: Assets/Scenes/EndingScreen.unity
+    guid: 7038d9ce140bc0c4bab333d82fd73eb6
   m_configObjects: {}

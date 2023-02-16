@@ -65,7 +65,7 @@ MonoBehaviour:
   _HumanPosition: {fileID: 0}
   isPlayer1: 1
   _CurrentTimeSpawn: 0
-  _MaxTimeSpaw: 60
+  _MaxTimeSpaw: 10
 --- !u!1001 &4881422569920144287
 PrefabInstance:
   m_ObjectHideFlags: 0

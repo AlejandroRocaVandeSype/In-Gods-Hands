@@ -16,7 +16,7 @@ public class PlayerBase : MonoBehaviour
 
     // Buildings
     public int _TotalHouses;
-    public int _TotalChurches;
+    public int _TotalChurches = 1;
     public const int _HousesPerChurch = 5;
     const int _ChurchCost = 5;      // WoodAndMetal
     const int _HouseCost = 4;       //  wood
@@ -30,6 +30,7 @@ public class PlayerBase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         _ResourceNeeded = GameManager.ResourceType.Wood;
     }
 
@@ -57,15 +58,20 @@ public class PlayerBase : MonoBehaviour
         if(_TotalChurches == 0)
         {
             // GameOver
-            /*
-            // No churches --> Priority Nº 1
-            _ResourceNeeded = GameManager.ResourceType.WoodAndMineral;
-            if (_TotalAmountWood >= _ChurchCost && _TotalAmountMineral >= _ChurchCost)
-            {
-                _Order = GameManager.HumanOrders.BuildChurch;
-            }
-            */
+            //GameManager.GetInstance.IsGameOver = true;
             return;
+        }
+        else
+        {
+            if(_TotalHumans >= 50)
+            {
+                GameManager.GetInstance.IsGameOver = true;
+                return;
+            }
+            else
+            {
+                
+            }
         }
         
         if(_TotalHouses < (_HousesPerChurch * _TotalChurches) )
@@ -147,5 +153,10 @@ public class PlayerBase : MonoBehaviour
     {
         get { return _Order; }
         set { _Order = value;  }
+    }
+
+    public void IncrementHumans()
+    {
+        _TotalHumans += 1;
     }
 }

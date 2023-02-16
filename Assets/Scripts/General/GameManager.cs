@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GameManager : MonoBehaviour
     #region SINGLETON
     private static GameManager Instance;
     private static bool IsApplicationQuiting = false;
+
+    public bool IsGameOver = false;
 
     public static GameManager GetInstance
     {
@@ -38,7 +41,7 @@ public class GameManager : MonoBehaviour
     public void Awake()
     {
         DontDestroyOnLoad(gameObject);
-
+        IsGameOver = false;
         if (Instance == null)
         {
             Instance = this;
@@ -97,6 +100,11 @@ public class GameManager : MonoBehaviour
                     break;
 
             }
+        }
+
+        if(IsGameOver)
+        {
+            SceneManager.LoadScene(3);
         }
     }
 
