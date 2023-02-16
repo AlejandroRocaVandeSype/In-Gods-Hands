@@ -27,7 +27,13 @@ public class ControllerInputUI : MonoBehaviour
     private List<Image> _Cards;
 
     private Image _SelectedCard;
+    public Image SelectedCard
+    {
+        get {return _SelectedCard;}
+    }
 
+    public CardManager _CardManager;
+    public CardAbilities _CardAbilities;
     private GameObject _Sphere;
     //private bool _IsDragging;
 
@@ -112,17 +118,26 @@ public class ControllerInputUI : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.Joystick1Button0))
                     {
                         //Spawn primitive sphere
-                        _Sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                        _Sphere.GetComponent<SphereCollider>().enabled = false;
-                        _Sphere.transform.localScale = Vector3.one * 100;
-                        _Sphere.transform.position = new Vector3(-500, -500, -500);
+                        //_Sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                        //_Sphere.GetComponent<SphereCollider>().enabled = false;
+                        //_Sphere.transform.localScale = Vector3.one * 100;
+                        //_Sphere.transform.position = new Vector3(-500, -500, -500);
                     }
 
                     if (Input.GetKey(KeyCode.Joystick1Button0))
                     {
-                        _Sphere.transform.position = hit.point;
+                        //_Sphere.transform.position = hit.point;
 
                     }
+
+                    if (Input.GetKeyUp(KeyCode.Joystick1Button0))
+                    {
+                        _CardAbilities.SendMessage("DoCardEffect",_SelectedCard.name);
+                       //Remove selected card from the cardmanager
+                       _CardManager.RemoveCard(_SelectedCard.name);
+
+                    }
+
                 }
                 if (_Player2)
                 {
@@ -134,16 +149,25 @@ public class ControllerInputUI : MonoBehaviour
                     {
 
 
-                        //Spawn primitive sphere
-                        _Sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                        _Sphere.GetComponent<SphereCollider>().enabled = false;
-                        _Sphere.transform.localScale = Vector3.one * 100;
-                        _Sphere.transform.position = new Vector3(-500, -500, -500);
+                        ////Spawn primitive sphere
+                        //_Sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                        //_Sphere.GetComponent<SphereCollider>().enabled = false;
+                        //_Sphere.transform.localScale = Vector3.one * 100;
+                        //_Sphere.transform.position = new Vector3(-500, -500, -500);
                     }
 
                     if (Input.GetKey(KeyCode.Joystick2Button0))
                     {
-                        _Sphere.transform.position = hit.point;
+                        //_Sphere.transform.position = hit.point;
+
+                    }
+                     if (Input.GetKeyUp(KeyCode.Joystick2Button0))
+                    {
+                        _CardAbilities.SendMessage("DoCardEffect",_SelectedCard.name);
+
+                       //Remove selected card from the cardmanager
+                       _CardManager.RemoveCard(_SelectedCard.name);
+
 
                     }
                 }
@@ -211,9 +235,11 @@ public class ControllerInputUI : MonoBehaviour
             {
                 card.GetComponent<OnHoverEffect>()._IsSelected = false;
                 card.GetComponent<OnHoverEffect>().MoveDown();
+                card.GetComponent<OnHoverEffect>().ScaleDown();
             }
 
             _Cards[3].GetComponent<OnHoverEffect>()._IsSelected = true;
+            _Cards[3].GetComponent<OnHoverEffect>().ScaleUp();
             _SelectedCard = _Cards[3];
         }
         if (dpad.y < -.7f)
@@ -222,10 +248,13 @@ public class ControllerInputUI : MonoBehaviour
             {
                 card.GetComponent<OnHoverEffect>()._IsSelected = false;
                 card.GetComponent<OnHoverEffect>().MoveDown();
+                card.GetComponent<OnHoverEffect>().ScaleDown();
 
             }
 
             _Cards[2].GetComponent<OnHoverEffect>()._IsSelected = true;
+            _Cards[2].GetComponent<OnHoverEffect>().ScaleUp();
+
             _SelectedCard = _Cards[2];
 
         }
@@ -235,10 +264,14 @@ public class ControllerInputUI : MonoBehaviour
             {
                 card.GetComponent<OnHoverEffect>()._IsSelected = false;
                 card.GetComponent<OnHoverEffect>().MoveDown();
+                card.GetComponent<OnHoverEffect>().ScaleDown();
+
 
             }
 
             _Cards[1].GetComponent<OnHoverEffect>()._IsSelected = true;
+            _Cards[1].GetComponent<OnHoverEffect>().ScaleUp();
+
             _SelectedCard = _Cards[1];
 
         }
@@ -248,10 +281,14 @@ public class ControllerInputUI : MonoBehaviour
             {
                 card.GetComponent<OnHoverEffect>()._IsSelected = false;
                 card.GetComponent<OnHoverEffect>().MoveDown();
+                card.GetComponent<OnHoverEffect>().ScaleDown();
+
 
             }
 
             _Cards[0].GetComponent<OnHoverEffect>()._IsSelected = true;
+            _Cards[0].GetComponent<OnHoverEffect>().ScaleUp();
+
             _SelectedCard = _Cards[0];
 
         }
