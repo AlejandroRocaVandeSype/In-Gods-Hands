@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     public enum PlayerNumber { Player1, Player2 };
 
-    public enum HumanBehaviors {  MovingToResource, MovingToChurch, GatheringResource, MovingToBuild, Building };
+    public enum HumanBehaviors {  MovingToResource, MovingToChurch, GatheringResource, MovingToBuild, Building, CheckIfResources };
 
     public enum HumanOrders {  GatherResources, BuildHouse, BuildChurch, NoOrders };
 

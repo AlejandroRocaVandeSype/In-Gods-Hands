@@ -14,7 +14,9 @@ public class Human : BasicCharacter
     // Resources
     private List<Resource> _WoodResources = null;
     private Resource _CurrentResource = null;   // Resource is gathering
+    private int _CurrentResourceIndex = 0;
     private float _CurrentGatheringTime = 0f;
+    private float _CurrentBuildingTime = 0f;
 
     // Constructions
     private List<Construction> _Churches = null;
@@ -25,8 +27,6 @@ public class Human : BasicCharacter
 
     public GameManager.HumanBehaviors _Behavior;
     public GameManager.ContrusctionType _BuildingToBuild;
-
-    private bool _IsAtTarget = false;
 
     private void Start()
     {
@@ -59,6 +59,21 @@ public class Human : BasicCharacter
               
         switch(_Behavior)
         {
+            case GameManager.HumanBehaviors.CheckIfResources:
+                bool areResourcesFree = false;
+                for(int index = 0; index < _WoodResources.Count; index++)
+                {
+                    if (!_WoodResources[index]._IsPlayerHuman )
+                    {
+                        areResourcesFree = true;
+                    }
+                }
+
+                if(areResourcesFree)
+                {
+                    _Behavior = GameManager.HumanBehaviors.MovingToResource;
+                }
+                break;
             case GameManager.HumanBehaviors.GatheringResource:
                 GatheringResource();
                 break;
@@ -86,7 +101,7 @@ public class Human : BasicCharacter
         {
             GetClosestFreeBuild();
         }
-
+        
         HandleMovement();
         HandleRotation();
 
@@ -102,26 +117,58 @@ public class Human : BasicCharacter
 
     public void Building()
     {
-        if(_CurrentGatheringTime >= _BuildSpotToBuild.BuildingTime)
+        if(_CurrentBuildingTime >= _BuildSpotToBuild.BuildingTime)
         {
-            _CurrentGatheringTime = 0;
-            Construction c = _BuildSpotToBuild.BuildHouse(_PlayerOwner);
+
+            _CurrentBuildingTime = 0;
+            Construction c = null;
+            bool isAHouse = false;
+            switch (_BuildingToBuild)
+            {
+                case GameManager.ContrusctionType.House:
+                    c = _BuildSpotToBuild.BuildHouse(_PlayerOwner);
+                    isAHouse = true;
+                    break;
+
+                case GameManager.ContrusctionType.Church:
+                    c = _BuildSpotToBuild.BuildChurch(_PlayerOwner);
+                    break;
+            }
+           
+            
             _Behavior = GameManager.HumanBehaviors.MovingToResource;
 
             if(_PlayerOwner == GameManager.PlayerNumber.Player1)
             {
-                _WorldManager._Player1Base.DecWood(GameManager.ContrusctionType.House);
-                _WorldManager.Player1Houses.Add(c);
+                
+                if(isAHouse)
+                {
+                    _WorldManager.Player1Houses.Add(c);
+                }
+                else
+                {
+                    _WorldManager.Player1Churchs.Add(c);
+                }
+                
             }
             else
             {
-                _WorldManager._Player2Base.DecWood(GameManager.ContrusctionType.House);
-                _WorldManager.Player2Houses.Add(c);
+                // Player 2
+
+                if(isAHouse)
+                {
+                    _WorldManager.Player2Houses.Add(c);
+                }
+                else
+                {
+                    _WorldManager.Player2Churchs.Add(c);
+                }
+                
             }
         }
         else
         {
-            _CurrentGatheringTime += Time.deltaTime;
+            _CurrentBuildingTime += Time.deltaTime;
         }
         
     }
@@ -133,23 +180,26 @@ public class Human : BasicCharacter
 
         for (int index = 0; index < _WorldManager._BuildSpots.Count; index++)
         {
-            // Resource is free.Get closest one
-           float currentDistance = Vector3.Distance(this.transform.position, _WorldManager._BuildSpots[index].transform.position);
-
-            if (closestFreeBuild == -1)
+            if (_WorldManager._BuildSpots[index].isFree)
             {
-                closestFreeBuild = currentDistance;
-                freeBuildIdx = index;
+                float currentDistance = Vector3.Distance(this.transform.position, _WorldManager._BuildSpots[index].transform.position);
 
-            }
-            else
-            {
-                if (currentDistance < closestFreeBuild)
+                if (closestFreeBuild == -1)
                 {
                     closestFreeBuild = currentDistance;
                     freeBuildIdx = index;
+
+                }
+                else
+                {
+                    if (currentDistance < closestFreeBuild)
+                    {
+                        closestFreeBuild = currentDistance;
+                        freeBuildIdx = index;
+                    }
                 }
             }
+          
 
 
         }
@@ -163,12 +213,20 @@ public class Human : BasicCharacter
     {
         
         // Wait some amount of time to gather resources
-        if(_CurrentGatheringTime >= _CurrentResource.GatheringTime)
+        if(_CurrentGatheringTime > _CurrentResource.GatheringTime)
         {
+            
             _Behavior = GameManager.HumanBehaviors.MovingToChurch;
             _CurrentResource._IsPlayerHuman = false;
             _CurrentGatheringTime = 0;
-            
+            /*
+            if(_CurrentResourceIndex >= 0 && _CurrentResourceIndex < _WoodResources.Count)
+            {
+                _WoodResources[_CurrentResourceIndex].isRecharging = true;
+            }
+                
+            _WoodResources.Remove(_CurrentResource);
+            */
         }
         else
         {
@@ -201,24 +259,27 @@ public class Human : BasicCharacter
 
         if (distanceToTarget < 20f)
         {
-            _IsAtTarget = true;
             _Target = null;
             _Behavior = GameManager.HumanBehaviors.GatheringResource;
-
+            
         }
     }
 
     private void MovingToChurch()
     {
-        if(_Churches.Count > 1 )
+        if(_Target == null)
         {
-
+            if (_Churches.Count > 1)
+            {
+                GetClosestChurch();
+            }
+            else
+            {
+                // Only one church go to this one
+                _Target = _Churches[0].gameObject;
+            }
         }
-        else
-        {
-            // Only one church go to this one
-            _Target = _Churches[0].gameObject;
-        }
+       
 
         HandleMovement();
         HandleRotation();
@@ -243,13 +304,55 @@ public class Human : BasicCharacter
                 }
                 
             }
-            _IsAtTarget = true;
-            _Target = null;
-            _Behavior = GameManager.HumanBehaviors.MovingToResource;
+            else
+            {
+                if (_CurrentResource.Type == GameManager.ResourceType.Wood)
+                {
+                    _WorldManager._Player2Base.IncWood();
+                }
+                else
+                {
+                    if (_CurrentResource.Type == GameManager.ResourceType.Mineral)
+                    {
+                        _WorldManager._Player2Base.IncStone();
+                    }
+                }
+            }
 
+            _Target = null;
+            _Behavior = GameManager.HumanBehaviors.CheckIfResources;
+            _CurrentResource= null;
         }
     }
 
+    private void GetClosestChurch()
+    {
+        float closestChurch = -1;
+        int churchIdx = 0;
+
+        for(int index = 0; index < _Churches.Count; index++)
+        {
+            float currentDistance = Vector3.Distance(this.transform.position, _Churches[index].transform.position);
+
+            if (closestChurch == -1)
+            {
+                closestChurch = currentDistance;
+                churchIdx = index;
+
+            }
+            else
+            {
+                if (currentDistance < closestChurch)
+                {
+                    closestChurch = currentDistance;
+                    churchIdx = index;
+                }
+            }
+        }
+
+        _Target = _Churches[churchIdx].gameObject;
+
+    }
     private void GetClosestResource(GameManager.ResourceType type)
     {
         float closestResource = -1;
@@ -261,7 +364,7 @@ public class Human : BasicCharacter
                 // Calculate where the closest resouce is
                 for (int index = 0; index < _WoodResources.Count; index++)
                 {
-                    if(!_WoodResources[index]._IsPlayerHuman)
+                    if(!_WoodResources[index]._IsPlayerHuman )
                     {
                         // Resource is free. Get closest one
                         float currentDistance = Vector3.Distance(this.transform.position, _WoodResources[index].transform.position);
@@ -287,6 +390,7 @@ public class Human : BasicCharacter
                 }
 
                 _CurrentResource = _WoodResources[resourceIdx];
+                _CurrentResourceIndex = resourceIdx;
                 _CurrentResource._IsPlayerHuman = true; // Resource taken
                 _Target = _WoodResources[resourceIdx].gameObject;
 

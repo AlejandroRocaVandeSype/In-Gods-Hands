@@ -61,6 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdc1d4ef41817154a9b8581894b2e423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Behavior: 0
+  _BuildingToBuild: 0
 --- !u!195 &3214532706540407050
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -95,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716376bb49b14f340bfffd909f49eb92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MovementSpeed: 50
+  _MovementSpeed: 60
 --- !u!1001 &8832566425015121663
 PrefabInstance:
   m_ObjectHideFlags: 0

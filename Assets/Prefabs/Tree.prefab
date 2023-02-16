@@ -60,8 +60,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Type: 0
-  _IsPlayer1Human: 0
-  _IsPlayer2Human: 0
+  _IsPlayerHuman: 0
+  isRecharging: 0
 --- !u!1001 &4100657266569500837
 PrefabInstance:
   m_ObjectHideFlags: 0
