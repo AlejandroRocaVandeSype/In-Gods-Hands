@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -105,11 +106,16 @@ public class ControllerInputUI : MonoBehaviour
 
             RaycastHit hit;
             Ray ray = _Cam.ScreenPointToRay(_Pointer.position);
-            int layerMask =~ LayerMask.GetMask("Destructible");
+           int layerMask =~ LayerMask.GetMask("Destructible");
             if (Physics.Raycast(ray, out hit, Mathf.Infinity,layerMask))
             {
                 HitPoint = hit.point;
                 _Instantiated.active = true;
+
+                object[] objects = new object[3];
+                    objects[0] = _SelectedCard.name;
+                    objects[1] = _Player1;
+                objects[2] = _Player2;
                 if (_Player1)
                 {
 
@@ -129,12 +135,13 @@ public class ControllerInputUI : MonoBehaviour
                         //_Sphere.transform.position = hit.point;
 
                     }
-
+                    
                     if (Input.GetKeyUp(KeyCode.Joystick1Button0))
                     {
-                        _CardAbilities.SendMessage("DoCardEffect",_SelectedCard.name);
+                        _CardAbilities.SendMessage("DoCardEffect",objects);
                        //Remove selected card from the cardmanager
                        _CardManager.RemoveCard(_SelectedCard.name);
+                       
 
                     }
 
@@ -163,7 +170,7 @@ public class ControllerInputUI : MonoBehaviour
                     }
                      if (Input.GetKeyUp(KeyCode.Joystick2Button0))
                     {
-                        _CardAbilities.SendMessage("DoCardEffect",_SelectedCard.name);
+                        _CardAbilities.SendMessage("DoCardEffect",objects);
 
                        //Remove selected card from the cardmanager
                        _CardManager.RemoveCard(_SelectedCard.name);
