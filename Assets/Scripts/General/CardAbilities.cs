@@ -41,8 +41,6 @@ public class CardAbilities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var p1Humans = _WorldManager.Player1Humans;
-        var p2Humans = _WorldManager.Player2Humans;
         //var hit = _ControllerInputUI._Hit;
         if (_Player1)
         {
@@ -56,8 +54,10 @@ public class CardAbilities : MonoBehaviour
                 
                 for(int i = 0; i < destructibles.Length; ++i)
                 {
+                   
                     Destroy(destructibles[i].gameObject);
                 }
+               
                 
             }
         }
@@ -73,6 +73,7 @@ public class CardAbilities : MonoBehaviour
                 
                 for(int i = 0; i < destructibles.Length; ++i)
                 {
+                    
                     Destroy(destructibles[i].gameObject);
                 }
                 
