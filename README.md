@@ -22,10 +22,10 @@ Use cards to cast your spells and affect the people on the island - be that posi
 <p>
 Play up to two players. The screen will be split into two sides, allowing you to play on the same computer and compete for become the best bad god.
  </p>
-<div>
+<div align ="left">
 <img src="https://user-images.githubusercontent.com/31854308/219878616-0a7a44da-01c2-4c3f-9219-a20ba0ff4f6d.jpg" height= "300" width="500"/>
   </div>
-  <div>
+  <div alig="right">
   <img src="https://user-images.githubusercontent.com/31854308/219879134-6d3316a3-d668-4979-af73-bae659354dcb.png" height= "300" width="500"/>
 </div>
 <h2> About </h2>
