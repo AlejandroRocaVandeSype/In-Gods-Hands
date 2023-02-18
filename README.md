@@ -25,7 +25,7 @@ Play up to two players. The screen will be split into two sides, allowing you to
 <p align="left">
 <img src="https://user-images.githubusercontent.com/31854308/219878616-0a7a44da-01c2-4c3f-9219-a20ba0ff4f6d.jpg" height= "300" width="500"/>
 </p>
-<h2> Credits </h2>
+<h2> About </h2>
 <p>
 In gods' hand was made in Unity for the Unwrap Jam 2023 in about 72 hours, being this our first game jam.
 </p>
