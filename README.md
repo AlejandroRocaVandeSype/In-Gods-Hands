@@ -24,8 +24,6 @@ Play up to two players. The screen will be split into two sides, allowing you to
  </p>
 <div align ="left">
 <img src="https://user-images.githubusercontent.com/31854308/219878616-0a7a44da-01c2-4c3f-9219-a20ba0ff4f6d.jpg" height= "300" width="500"/>
-  <br> </br>
-  <img src="https://user-images.githubusercontent.com/31854308/219879134-6d3316a3-d668-4979-af73-bae659354dcb.png" height= "300" width="500"/>
 </div>
 <h2> About </h2>
 <p>
