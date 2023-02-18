@@ -18,6 +18,12 @@ Use cards to cast your spells and affect the people on the island - be that posi
 </p>
 <img src="https://user-images.githubusercontent.com/31854308/219877363-997a674c-2cbf-4c37-8bde-858718a6bfbb.gif" height= "300" width="200"/>
 
+<h2> God vs God </h2>
+Play up to two players. The screen will be split into two sides allowing to play in the same computer and compete how is the best bad god 
 
 
-
+<h2> Credits </h2>
+<p>
+In gods' hand was made in Unity for the Unwrap Jam 2023 in about 72 hours, being this our first game jam.
+</p>
+<img src="https://user-images.githubusercontent.com/31854308/219878335-061836e2-c832-42b6-8a33-4711f0223964.png" height= "500" width="500"/>
