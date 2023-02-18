@@ -19,8 +19,10 @@ Use cards to cast your spells and affect the people on the island - be that posi
 <img src="https://user-images.githubusercontent.com/31854308/219877363-997a674c-2cbf-4c37-8bde-858718a6bfbb.gif" height= "300" width="200"/>
 
 <h2> God vs God </h2>
+<p>
 Play up to two players. The screen will be split into two sides allowing to play in the same computer and compete how is the best bad god 
-<img src="https://user-images.githubusercontent.com/31854308/219878616-0a7a44da-01c2-4c3f-9219-a20ba0ff4f6d.jpg" height= "300" width="200"/>
+ </p>
+<img src="https://user-images.githubusercontent.com/31854308/219878616-0a7a44da-01c2-4c3f-9219-a20ba0ff4f6d.jpg" height= "400" width="500"/>
 
 <h2> Credits </h2>
 <p>
