@@ -7,7 +7,7 @@ In Gods' Hands is a  Local PvP multiplayer game where the best god wins. Play wi
 <div id="ChooseGod" align = "right">
 At the start of the game you can choose from different <b>god cards</b>. All of these have different passive effects in the game. Choose wisely and adapt to the chances you get.
  </div>
-<img src="https://user-images.githubusercontent.com/31854308/219876493-6c092475-4eb0-4665-b79b-ef99f2aff792.gif" height= "500" width="400"/>
+<img src="https://user-images.githubusercontent.com/31854308/219876493-6c092475-4eb0-4665-b79b-ef99f2aff792.gif" height= "300" width="400"/>
 
 <h2> Use your godly powers </h2>
 Use cards to cast your spells and affect the people on the island -  be that positive or negative.
