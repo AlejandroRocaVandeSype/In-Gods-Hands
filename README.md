@@ -15,7 +15,7 @@ At the start of the game you can choose from different <b>god cards</b>. All of 
 <div>
 Use cards to cast your spells and affect the people on the island -  be that positive or negative.csaaaaaa
   asddddddddddddddddddddd
-  adasdad
+  adasdaddassssssssssssssssssssssssssssssssssssss
 <p align="right">
 <img src="https://user-images.githubusercontent.com/31854308/219877363-997a674c-2cbf-4c37-8bde-858718a6bfbb.gif" height= "300" width="200"/>
  </p>
