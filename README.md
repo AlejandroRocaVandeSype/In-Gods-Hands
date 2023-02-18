@@ -20,7 +20,7 @@ Play up to two players. The screen will be split into two sides, allowing you to
 At the start of the game you can choose from different <b>god cards</b>. All of these have different passive effects in the game. Choose wisely and adapt to the chances you get.
   </p>
 <p align="left">
-<img src="https://user-images.githubusercontent.com/31854308/219876493-6c092475-4eb0-4665-b79b-ef99f2aff792.gif" height= "200" width="600"/>
+<img src="https://user-images.githubusercontent.com/31854308/219876493-6c092475-4eb0-4665-b79b-ef99f2aff792.gif" height= "300" width="700"/>
 </p>
 
 <h2> Use your godly powers </h2>
