@@ -9,7 +9,7 @@ You and the other god (player) compete to gain the most followers; do this by co
 <p>
 At the start of the game you can choose from different <b>god cards</b>. All of these have different passive effects in the game. Choose wisely and adapt to the chances you get.
   </p>
-<p align="center">
+<p align="left">
 <img src="https://user-images.githubusercontent.com/31854308/219876493-6c092475-4eb0-4665-b79b-ef99f2aff792.gif" height= "200" width="600"/>
 </p>
 <h2> Use your godly powers </h2>
@@ -22,7 +22,7 @@ Use cards to cast your spells and affect the people on the island - be that posi
 <p>
 Play up to two players. The screen will be split into two sides allowing to play in the same computer and compete how is the best bad god 
  </p>
-<p align="center">
+<p align="left">
 <img src="https://user-images.githubusercontent.com/31854308/219878616-0a7a44da-01c2-4c3f-9219-a20ba0ff4f6d.jpg" height= "300" width="500"/>
 </p>
 <h2> Credits </h2>
