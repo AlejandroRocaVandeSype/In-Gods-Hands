@@ -10,7 +10,7 @@ At the start of the game you can choose from different <b>god cards</b>. All of 
   </p>
 <img src="https://user-images.githubusercontent.com/31854308/219780446-1923f065-4364-49fc-9fec-3a77ccc7a900.png" alt="Logo" width="200" height="200" align = "right">
 </div>
-
+<br>
 <div id="Cards" align = "center">
 <h2> Use your godly powers </h2>
 Use cards to cast your spells and affect the people on the island -  be that positive or negative.
