@@ -22,8 +22,9 @@ Use cards to cast your spells and affect the people on the island - be that posi
 <p>
 Play up to two players. The screen will be split into two sides allowing to play in the same computer and compete how is the best bad god 
  </p>
-<img src="https://user-images.githubusercontent.com/31854308/219878616-0a7a44da-01c2-4c3f-9219-a20ba0ff4f6d.jpg" height= "300" width="500" align="center"/>
-
+<p align="center">
+<img src="https://user-images.githubusercontent.com/31854308/219878616-0a7a44da-01c2-4c3f-9219-a20ba0ff4f6d.jpg" height= "300" width="500"/>
+</p>
 <h2> Credits </h2>
 <p>
 In gods' hand was made in Unity for the Unwrap Jam 2023 in about 72 hours, being this our first game jam.
