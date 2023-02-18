@@ -1,6 +1,6 @@
 # In Gods Hands
 <p align="center">
-<img src="https://user-images.githubusercontent.com/31854308/219875584-6419f54e-4b78-4b67-bb4b-4c348f01fbea.png" height= "600" width="800"/>
+<img src="https://user-images.githubusercontent.com/31854308/219875584-6419f54e-4b78-4b67-bb4b-4c348f01fbea.png" height= "400" width="800"/>
 </p>
 In Gods' Hands is a  Local PvP multiplayer game where the best god wins. Play with the life of the fragile mortals who worship you to prove a point, settle an argument, or kill some boredom.
 
