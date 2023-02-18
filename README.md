@@ -12,7 +12,7 @@ You and the other god (player) compete to gain the most followers; do this by co
 Play up to two players. The screen will be split into two sides, allowing you to play on the same computer and compete for become the best god.
 </p>
 <div align ="left">
-<img src="https://user-images.githubusercontent.com/31854308/219878616-0a7a44da-01c2-4c3f-9219-a20ba0ff4f6d.jpg" height= "300" width="600"/>
+<img src="https://user-images.githubusercontent.com/31854308/219878616-0a7a44da-01c2-4c3f-9219-a20ba0ff4f6d.jpg" height= "350" width="600"/>
 </div>
 
 <h2> Choose a god </h2>
