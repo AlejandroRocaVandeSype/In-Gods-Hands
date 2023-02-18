@@ -5,7 +5,9 @@
 In Gods' Hands is a  Local PvP multiplayer game where the best god wins. Play with the life of the fragile mortals who worship you to prove a point, settle an argument, or kill some boredom.
 <h2> May the best god win </h2>
 You and the other god (player) compete to gain the most followers; do this by converting the other gods' followers to be yours or eliminate them entirely.
+<p>
 Play up to two players. The screen will be split into two sides, allowing you to play on the same computer and compete for become the best bad god.
+</p>
 <div align ="left">
 <img src="https://user-images.githubusercontent.com/31854308/219878616-0a7a44da-01c2-4c3f-9219-a20ba0ff4f6d.jpg" height= "300" width="500"/>
 </div>
