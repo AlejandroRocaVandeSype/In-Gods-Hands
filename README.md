@@ -1,5 +1,5 @@
 # In Gods Hands
-<p align="left">
+<p align="center">
 <img src="https://user-images.githubusercontent.com/31854308/219875584-6419f54e-4b78-4b67-bb4b-4c348f01fbea.png" height= "400" width="700"/>
 </p>
 In Gods' Hands is a  Local PvP multiplayer game where the best god wins. Play with the life of the fragile mortals who worship you to prove a point, settle an argument, or kill some boredom.
@@ -20,7 +20,7 @@ Use cards to cast your spells and affect the people on the island - be that posi
 
 <h2> God vs God </h2>
 Play up to two players. The screen will be split into two sides allowing to play in the same computer and compete how is the best bad god 
-
+<img src="https://user-images.githubusercontent.com/31854308/219878616-0a7a44da-01c2-4c3f-9219-a20ba0ff4f6d.jpg" height= "300" width="200"/>
 
 <h2> Credits </h2>
 <p>
